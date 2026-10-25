@@ -1,0 +1,426 @@
+<title>Will Vinton</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Will Vinton is an ecommerce, digital product and technology leader. Resume, results, and current and upcoming projects.">
+<meta property="og:title" content="Will Vinton">
+<meta property="og:description" content="Ecommerce, digital product and technology leader. Resume, results and projects.">
+<meta property="og:image" content="https://willvinton.com/headshot.jpg">
+<meta property="og:url" content="https://willvinton.com/">
+<link rel="icon" href="headshot.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Schibsted+Grotesk:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: one narrow reading column with a wide hero; career reads as a ledger (dates in a mono left rail), work grouped by status: Now, Shipped, Next. */
+:root{
+  --bg:#F2F4F1; --surface:#FFFFFF; --ink:#141C1A; --muted:#56625E; --line:#D6DCD8;
+  --accent:#2340D8; --accent-soft:#E3E8FC; --live:#137A4B; --next:#9A5B00;
+  --display:"Bricolage Grotesque", "Arial Narrow", system-ui, sans-serif;
+  --body:"Schibsted Grotesk", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --mono:"JetBrains Mono", ui-monospace, "SF Mono", Menlo, monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#0E1312; --surface:#161D1B; --ink:#E7ECEA; --muted:#98A5A0; --line:#28322F;
+  --accent:#8C9FFF; --accent-soft:#1E2550; --live:#4FCB8E; --next:#E8A84A; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0E1312; --surface:#161D1B; --ink:#E7ECEA; --muted:#98A5A0; --line:#28322F;
+  --accent:#8C9FFF; --accent-soft:#1E2550; --live:#4FCB8E; --next:#E8A84A; color-scheme:dark}
+
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font:400 1.0625rem/1.6 var(--body);-webkit-font-smoothing:antialiased}
+.wrap{max-width:68rem;margin:0 auto;padding-left:max(16px, env(safe-area-inset-left,0px));padding-right:max(16px, env(safe-area-inset-right,0px))}
+a{color:var(--accent);text-underline-offset:3px}
+a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
+h1,h2,h3{font-family:var(--display);text-wrap:balance;margin:0;line-height:1.05}
+p{margin:0}
+.label{font:500 .72rem/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+
+/* top bar */
+.top{display:flex;justify-content:space-between;align-items:center;gap:16px;padding-block:22px;flex-wrap:wrap}
+.mark{font:800 1.1rem/1 var(--display);letter-spacing:-.01em;color:var(--ink);text-decoration:none}
+.mark span{color:var(--accent)}
+nav{display:flex;gap:20px;flex-wrap:wrap}
+nav a{color:var(--muted);text-decoration:none;font-size:.95rem}
+nav a:hover{color:var(--ink)}
+
+/* hero */
+.hero{display:grid;grid-template-columns:1.25fr 1fr;gap:48px;align-items:end;padding-block:56px 72px;border-bottom:1px solid var(--line)}
+.hero > *{min-width:0}
+.me{display:flex;align-items:center;gap:18px}
+.portrait{width:112px;height:112px;max-width:100%;border-radius:50%;object-fit:cover;object-position:50% 30%;border:3px solid var(--surface);box-shadow:0 0 0 1px var(--line)}
+.me .label{line-height:1.7}
+.me .open{color:var(--accent)}
+.hero h1{font-size:clamp(2.8rem,7.5vw,5.6rem);font-weight:800;letter-spacing:-.035em}
+.hero .role{margin-top:20px;font:500 1.25rem/1.4 var(--body);max-width:34ch}
+.hero .intro{margin-top:18px;color:var(--muted);max-width:52ch}
+.cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:11px 18px;border-radius:999px;font:600 .95rem/1 var(--body);text-decoration:none;border:1px solid var(--ink);color:var(--ink);background:transparent;cursor:pointer}
+.btn.primary{background:var(--ink);color:var(--bg)}
+.btn:hover{border-color:var(--accent)}
+.chart{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:20px 20px 14px}
+.chart .big{font:800 clamp(2rem,4.4vw,2.8rem)/1 var(--display);letter-spacing:-.03em;margin-top:10px}
+.chart .big b{color:var(--accent);font-weight:800}
+.chart p.cap{color:var(--muted);font-size:.9rem;margin-top:6px}
+.chart svg{display:block;width:100%;height:auto;margin-top:14px;overflow:visible}
+
+section{padding-block:72px;border-bottom:1px solid var(--line)}
+.head{display:flex;justify-content:space-between;align-items:baseline;gap:16px;flex-wrap:wrap;margin-bottom:36px}
+.head h2{font-size:clamp(1.9rem,4vw,2.6rem);font-weight:700;letter-spacing:-.025em}
+
+/* results */
+.results{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:14px;overflow:hidden}
+.result{background:var(--surface);padding:24px;display:flex;flex-direction:column;gap:8px;min-width:0}
+.result .n{font:700 1.9rem/1 var(--display);letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+.result p{color:var(--muted);font-size:.95rem}
+
+/* experience ledger */
+.job{display:grid;grid-template-columns:11rem 1fr;gap:28px;padding-block:28px;border-top:1px solid var(--line)}
+.job:first-of-type{border-top:0;padding-top:0}
+.job > *{min-width:0}
+.when{font:500 .82rem/1.5 var(--mono);color:var(--muted);font-variant-numeric:tabular-nums}
+.job h3{font-size:1.45rem;font-weight:700;letter-spacing:-.015em}
+.job .title{font-weight:600;margin-top:4px}
+.job .where{color:var(--muted);font-size:.92rem}
+.job .sum{margin-top:12px;max-width:65ch}
+.job ul{margin:12px 0 0;padding-left:1.1rem;display:grid;gap:6px;max-width:65ch}
+.job li::marker{color:var(--accent)}
+.sub{margin-top:18px;padding-top:14px;border-top:1px dashed var(--line)}
+
+/* work */
+.group{margin-top:40px}
+.group:first-of-type{margin-top:0}
+.ghead{display:flex;align-items:center;gap:12px;margin-bottom:16px}
+.ghead h3{font-size:1.3rem;font-weight:700}
+.chip{font:500 .7rem/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;padding:6px 9px;border-radius:999px;border:1px solid currentColor}
+.chip.now{color:var(--live)} .chip.done{color:var(--muted)} .chip.next{color:var(--next)}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:22px;display:flex;flex-direction:column;gap:10px;min-width:0}
+.card .kind{font:500 .72rem/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--accent)}
+.card h4{margin:0;font:700 1.15rem/1.2 var(--display);letter-spacing:-.01em}
+.card p{color:var(--muted);font-size:.95rem}
+.card .tags{margin-top:auto;padding-top:6px;display:flex;flex-wrap:wrap;gap:6px}
+.card .tags span{font:400 .72rem/1 var(--mono);padding:5px 7px;border-radius:5px;background:var(--accent-soft);color:var(--ink)}
+
+/* stack */
+.stack{display:grid;grid-template-columns:repeat(3,1fr);gap:28px 40px}
+.stack > div{min-width:0}
+.stack h3{font:600 .95rem/1.3 var(--body);margin-bottom:8px}
+.stack p{color:var(--muted);font-size:.95rem}
+.edu{margin-top:44px;display:flex;gap:12px 28px;flex-wrap:wrap;align-items:baseline}
+.edu strong{font-family:var(--display);font-size:1.2rem}
+
+/* contact */
+.contact{padding-block:80px;border-bottom:0}
+.contact h2{font-size:clamp(2.2rem,6vw,4rem);font-weight:800;letter-spacing:-.03em;max-width:16ch}
+.contact .lede{color:var(--muted);margin-top:16px;max-width:52ch}
+.rows{margin-top:32px;display:grid;gap:0;border-top:1px solid var(--line);max-width:44rem}
+.row{display:flex;justify-content:space-between;align-items:center;gap:16px;padding-block:16px;border-bottom:1px solid var(--line);flex-wrap:wrap}
+.row .v{font:500 1.05rem/1.3 var(--mono);user-select:all;overflow-wrap:anywhere;min-width:0}
+.copy{font:500 .85rem/1 var(--body);padding:8px 14px;border-radius:999px;border:1px solid var(--line);background:var(--surface);color:var(--ink);cursor:pointer}
+footer{padding-block:28px 40px;color:var(--muted);font-size:.85rem;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+
+@media (max-width:860px){
+  .hero{grid-template-columns:1fr;gap:36px;padding-block:32px 56px}
+  .results,.cards,.stack{grid-template-columns:1fr 1fr}
+  .job{grid-template-columns:1fr;gap:8px}
+}
+@media (max-width:560px){
+  .results,.cards,.stack{grid-template-columns:1fr}
+  nav{gap:14px}
+  section{padding-block:56px}
+}
+@media (prefers-reduced-motion:no-preference){
+  .line-draw{stroke-dasharray:420;stroke-dashoffset:0;animation:draw 1.4s ease-out both}
+  @keyframes draw{from{stroke-dashoffset:420}to{stroke-dashoffset:0}}
+}
+</style>
+
+<div class="wrap">
+  <header class="top">
+    <a class="mark" href="#top">willvinton<span>.</span>com</a>
+    <nav aria-label="Sections">
+      <a href="#results">Results</a>
+      <a href="#experience">Experience</a>
+      <a href="#work">Work</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <div class="hero" id="top">
+    <div>
+      <div class="me">
+        <img class="portrait" src="headshot.jpg" width="720" height="720" alt="Will Vinton, smiling, in a navy blazer and white shirt">
+        <p class="label">Wilmington, Delaware<br><span class="open">Ecommerce · Product · Technology</span></p>
+      </div>
+      <h1 style="margin-top:22px">Will Vinton</h1>
+      <p class="role">Ecommerce, digital product and technology leader.</p>
+      <p class="intro">I've spent my career building and running online businesses, from a self-funded startup to $320M a year in digital revenue. I run product, engineering, data and customer experience as one team, own more of the stack at lower cost, and put AI to work in everyday operations.</p>
+      <div class="cta">
+        <a class="btn primary" href="#contact">Get in touch</a>
+        <a class="btn" href="https://www.linkedin.com/in/will-vinton" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+    </div>
+
+    <figure class="chart" style="margin:0">
+      <p class="label">Mattress Firm · annual digital revenue</p>
+      <p class="big">$20M <span style="color:var(--muted);font-weight:500">→</span> <b>$320M</b></p>
+      <p class="cap">Eight years leading the platform, product and engineering behind it.</p>
+      <svg viewBox="0 0 320 150" role="img" aria-label="Line chart: digital revenue grew from about $20M in 2013 to $50M in 2015, $113M in 2019 and $320M in 2021.">
+        <line x1="10" y1="120" x2="300" y2="120" stroke="var(--line)" stroke-width="1"/>
+        <line x1="10" y1="65" x2="300" y2="65" stroke="var(--line)" stroke-width="1" stroke-dasharray="2 4"/>
+        <line x1="10" y1="10" x2="300" y2="10" stroke="var(--line)" stroke-width="1" stroke-dasharray="2 4"/>
+        <polygon points="10,120 10,113.1 82.5,102.8 227.5,81.2 300,10 300,120" fill="var(--accent-soft)"/>
+        <polyline class="line-draw" points="10,113.1 82.5,102.8 227.5,81.2 300,10" fill="none" stroke="var(--accent)" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>
+        <g fill="var(--surface)" stroke="var(--accent)" stroke-width="2">
+          <circle cx="10" cy="113.1" r="3.5"/><circle cx="82.5" cy="102.8" r="3.5"/><circle cx="227.5" cy="81.2" r="3.5"/>
+        </g>
+        <circle cx="300" cy="10" r="5" fill="var(--accent)"/>
+        <g font-family="JetBrains Mono, monospace" font-size="9.5" fill="var(--muted)">
+          <text x="10" y="138" text-anchor="start">2013</text>
+          <text x="82.5" y="138" text-anchor="middle">2015</text>
+          <text x="227.5" y="138" text-anchor="middle">2019</text>
+          <text x="300" y="138" text-anchor="end">2021</text>
+        </g>
+        <g font-family="JetBrains Mono, monospace" font-size="9.5" fill="var(--ink)">
+          <text x="16" y="105">$20M</text>
+          <text x="82.5" y="94" text-anchor="middle">$50M</text>
+          <text x="227.5" y="72" text-anchor="middle">$113M</text>
+          <text x="292" y="13" text-anchor="end">$320M</text>
+        </g>
+      </svg>
+    </figure>
+  </div>
+
+  <section id="results">
+    <div class="head"><h2>Selected results</h2><p class="label">2009 to today</p></div>
+    <div class="results">
+      <div class="result"><span class="n">$20M → $320M</span><p>Grew Mattress Firm's annual digital revenue over eight years.</p></div>
+      <div class="result"><span class="n">+20% in 6 months</span><p>Turned around Mishimoto's DTC ecommerce, then grew double digits each of the first two years in a flat, tariff-hit market.</p></div>
+      <div class="result"><span class="n">&lt;5 → 50+</span><p>Built a digital organization supporting 10+ websites and 20+ systems, with zero voluntary turnover.</p></div>
+      <div class="result"><span class="n">+50% YoY</span><p>Grew Visionet's global digital consulting practice to 140 people and 20+ enterprise clients.</p></div>
+      <div class="result"><span class="n">$0 → $5M+</span><p>Co-founded Olejo with no outside funding and saw it acquired by Mattress Firm.</p></div>
+      <div class="result"><span class="n">80% faster</span><p>Moved Mattress Firm to a headless React, Next.js and PWA storefront on an edge CDN.</p></div>
+    </div>
+  </section>
+
+  <section id="experience">
+    <div class="head"><h2>Experience</h2><p class="label">Most recent first</p></div>
+
+    <article class="job">
+      <p class="when">Jan 2024 – Present</p>
+      <div>
+        <h3>Mishimoto Automotive</h3>
+        <p class="title">Director, Digital Experience &amp; Technology</p>
+        <p class="where">Garnet Valley, PA</p>
+        <p class="sum">Recruited by the CEO to rebuild ecommerce after leadership turnover. I lead the product, engineering, data and CX team behind six Magento storefronts (DTC and B2B across the US, EU and UK) on NetSuite, with P&amp;L accountability and ownership of MarTech, vendor and offshore budgets.</p>
+        <ul>
+          <li>Delivered 20% revenue growth within six months and double-digit growth in each of the first two years.</li>
+          <li>Founded centers of excellence for SEO, analytics, CRO, site speed and Kanban delivery; grew the team 50%.</li>
+          <li>Cut recurring software spend by replacing Optimizely, Adobe Live Search, AfterShip and an ERP connector with lower-cost or in-house builds (n8n, Meilisearch, Attentive).</li>
+          <li>Ran a two-day B2B workshop with the CEO and sales leadership to open the wholesale portal beyond ~85 distributors to independent shops.</li>
+          <li>Directed cross-border compliance for ~5,500 SKUs across Canada and 27 EU countries, including DDP duties at checkout.</li>
+          <li>Built an AI-assisted session-replay QA pipeline that surfaced and prioritized ~50 storefront defects.</li>
+        </ul>
+      </div>
+    </article>
+
+    <article class="job">
+      <p class="when">2026 – Present</p>
+      <div>
+        <h3>Commerce Builds, Inc.</h3>
+        <p class="title">Senior Digital Consultant &amp; Project Lead</p>
+        <p class="where">Wilmington, DE · Shopify Plus consultancy</p>
+        <ul>
+          <li>Leading a WooCommerce to Shopify Plus replatform for a 26-store, century-old footwear retailer (~1,520 products, 111 brands), including SEO equity recovery.</li>
+          <li>Built a 22-epic, 12-month growth roadmap for a premium mattress brand.</li>
+          <li>Launched a 14-brand mattress retailer's Shopify catalog through scripted data pipelines and trained staff to own it.</li>
+        </ul>
+      </div>
+    </article>
+
+    <article class="job">
+      <p class="when">Jul 2021 – Jan 2024</p>
+      <div>
+        <h3>Visionet Systems</h3>
+        <p class="title">Head of Digital Consulting, Senior Director Digital</p>
+        <p class="where">Cranbury, NJ</p>
+        <p class="sum">Led a global digital consulting practice of 140 people serving B2B and B2C retail and CPG clients.</p>
+        <ul>
+          <li>Grew practice revenue 50% year over year with a new go-to-market, service offerings and sales collateral.</li>
+          <li>Created Digital Team-as-a-Service and transformation offerings bringing Agile, product management and design sprints to clients.</li>
+          <li>Spoke for the practice at industry events and led Design Thinking workshops for client leadership.</li>
+        </ul>
+      </div>
+    </article>
+
+    <article class="job">
+      <p class="when">Jun 2013 – Jul 2021</p>
+      <div>
+        <h3>Mattress Firm</h3>
+        <p class="where">Houston, TX</p>
+        <p class="title" style="margin-top:10px">Director of Digital Technology · 2019–2021</p>
+        <ul>
+          <li>Owned digital product engineering and the omnichannel and CRM roadmaps as revenue grew from $113M to $320M.</li>
+          <li>Moved the digital org from waterfall to SAFe Agile across 50+ internal and partner people.</li>
+          <li>Re-platformed onto a headless stack, improving site performance 80%; led Salesforce CRM across 2,500 stores.</li>
+        </ul>
+        <div class="sub">
+          <p class="title">Director of Digital · 2015–2019</p>
+          <ul>
+            <li>Led a 30+ person team as revenue grew from $50M to $113M; launched BOPIS and delivery scheduling.</li>
+          </ul>
+        </div>
+        <div class="sub">
+          <p class="title">eCommerce Development Manager · 2013–2015</p>
+          <ul>
+            <li>Stabilized a failing legacy platform, then led the Sitecore migration that took revenue from under $20M to $50M.</li>
+          </ul>
+        </div>
+      </div>
+    </article>
+
+    <article class="job">
+      <p class="when">Jan 2009 – Jun 2013</p>
+      <div>
+        <h3>Olejo Inc.</h3>
+        <p class="title">Co-Founder, Head of Product &amp; Technology</p>
+        <p class="where">Boston, MA</p>
+        <ul>
+          <li>Built a homegrown ecommerce platform on minimal capital and grew the business to $5M+ without outside funding.</li>
+          <li>Led product, technology and integrations through the acquisition by Mattress Firm.</li>
+        </ul>
+      </div>
+    </article>
+  </section>
+
+  <section id="work">
+    <div class="head"><h2>Projects &amp; portfolio</h2><p class="label">What I'm building</p></div>
+
+    <div class="group">
+      <div class="ghead"><span class="chip now">Now</span><h3>Running today</h3></div>
+      <div class="cards">
+        <article class="card">
+          <span class="kind">Holding company</span>
+          <h4>Brecks Brothers</h4>
+          <p>A family-run portfolio of six brands across digital consulting, food, landscaping and ecommerce, all run by a lean, AI-assisted operating model.</p>
+          <div class="tags"><span>GitHub Pages</span><span>Claude Code</span></div>
+        </article>
+        <article class="card">
+          <span class="kind">Food · Greenville, DE</span>
+          <h4>Brecks Brothers Bakery</h4>
+          <p>Home bakery with weekly delivery of bagels, breads, pretzels, focaccia and pizza dough. The site validates demand before a move to Shopify subscriptions.</p>
+          <div class="tags"><span>brecksbros.com</span><span>Order flow</span></div>
+        </article>
+        <article class="card">
+          <span class="kind">Ecommerce</span>
+          <h4>Springs Into the Hobby</h4>
+          <p>A Shopify dropship store growing from sports cards and memorabilia into a broader hobby shop: Pokémon, coins and more.</p>
+          <div class="tags"><span>Shopify</span><span>Dropship</span></div>
+        </article>
+        <article class="card">
+          <span class="kind">Services · New Castle County</span>
+          <h4>Brecks Brothers Landscaping</h4>
+          <p>Family-run lawn care using only 100% electric equipment and walk-behind mowers.</p>
+          <div class="tags"><span>Electric only</span></div>
+        </article>
+        <article class="card">
+          <span class="kind">Advisory</span>
+          <h4>Brecks Brothers Digital Consulting</h4>
+          <p>Ecommerce and digital strategy for brands taking a product or idea to a full Shopify Plus site, with the operations to run it.</p>
+          <div class="tags"><span>Shopify Plus</span><span>Magento</span><span>Salesforce</span></div>
+        </article>
+        <article class="card">
+          <span class="kind">Client work</span>
+          <h4>Commerce Builds engagements</h4>
+          <p>A footwear replatform going live in November 2026, plus growth and catalog work for two mattress retailers.</p>
+          <div class="tags"><span>Replatform</span><span>SEO</span><span>Python</span></div>
+        </article>
+      </div>
+    </div>
+
+    <div class="group">
+      <div class="ghead"><span class="chip next">Next</span><h3>In development</h3></div>
+      <div class="cards">
+        <article class="card">
+          <span class="kind">Consulting framework</span>
+          <h4>Springboard</h4>
+          <p>A foundation that lets a small ecommerce team run like a big one: a Figma design system, Claude, and Shopify and Klaviyo connected through MCP, with business processes automated end to end. Includes a scoring system and an education hub.</p>
+          <div class="tags"><span>Figma</span><span>MCP</span><span>Klaviyo</span><span>AI ops</span></div>
+        </article>
+        <article class="card">
+          <span class="kind">Hospitality</span>
+          <h4>Brecks Bistro &amp; Brecks Brothers Bistro</h4>
+          <p>Two restaurant concepts: an exclusive prix-fixe dining room and a casual bar and restaurant. Open to investors and partners.</p>
+          <div class="tags"><span>Seeking partners</span></div>
+        </article>
+        <article class="card">
+          <span class="kind">Ecommerce concept</span>
+          <h4>Pool skimmer store</h4>
+          <p>A focused dropship shop for pool skimming gear, built for the parent who keeps the family pool clean.</p>
+          <div class="tags"><span>Shopify</span><span>Dropship</span></div>
+        </article>
+      </div>
+    </div>
+
+    <div class="group">
+      <div class="ghead"><span class="chip done">Shipped</span><h3>Career highlights</h3></div>
+      <div class="cards">
+        <article class="card">
+          <span class="kind">Retail · 2013–2021</span>
+          <h4>Mattress Firm digital</h4>
+          <p>Sitecore migration, BOPIS, Salesforce CRM across 2,500 stores, and a headless storefront 80% faster than before.</p>
+          <div class="tags"><span>Headless</span><span>Salesforce</span></div>
+        </article>
+        <article class="card">
+          <span class="kind">Automotive · 2024–</span>
+          <h4>Mishimoto storefronts</h4>
+          <p>Six Magento sites across the US, EU and UK, with cross-border duties, a B2B portal expansion and an in-house search stack.</p>
+          <div class="tags"><span>Magento</span><span>NetSuite</span><span>Meilisearch</span></div>
+        </article>
+        <article class="card">
+          <span class="kind">Startup · 2009–2013</span>
+          <h4>Olejo</h4>
+          <p>A bootstrapped ecommerce company on a platform I built, grown to $5M+ and acquired.</p>
+          <div class="tags"><span>Founder</span><span>Exit</span></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="stack">
+    <div class="head"><h2>Platforms &amp; tools</h2></div>
+    <div class="stack">
+      <div><h3>Commerce</h3><p>Adobe Commerce (Magento), Shopify Plus, Salesforce Commerce and CRM, Sitecore, WooCommerce</p></div>
+      <div><h3>ERP, payments &amp; ops</h3><p>NetSuite, n8n, Avalara, ShipperHQ, Braintree, PayPal, Klarna</p></div>
+      <div><h3>Data &amp; analytics</h3><p>Snowflake, GA4, Tag Manager, Matomo, LogRocket, Search Console, Screaming Frog</p></div>
+      <div><h3>Experience &amp; marketing</h3><p>Optimizely, Klaviyo, Attentive, Meilisearch, Figma</p></div>
+      <div><h3>Engineering &amp; delivery</h3><p>React, Next.js, PWA, edge CDN, Python, Jira, Linear, SAFe, Kanban</p></div>
+      <div><h3>AI</h3><p>Claude Code and MCP-connected agents, AI-assisted QA and ticketing, AI prototyping and design</p></div>
+    </div>
+    <div class="edu">
+      <p class="label">Education</p>
+      <strong>Northeastern University</strong>
+      <span style="color:var(--muted)">B.S. Computer Science · Boston, MA</span>
+    </div>
+  </section>
+
+  <section class="contact" id="contact">
+    <p class="label">Contact</p>
+    <h2 style="margin-top:14px">Have a product to launch or a team to build?</h2>
+    <p class="lede">I work with founders and leadership teams on ecommerce strategy, replatforms and digital operations. Email is the fastest way to reach me.</p>
+    <div class="rows">
+      <div class="row"><span class="v" id="email">wvinton.ecom@gmail.com</span><button class="copy" id="copyEmail" type="button">Copy email</button></div>
+      <div class="row"><span class="v">linkedin.com/in/will-vinton</span><a class="copy" href="https://www.linkedin.com/in/will-vinton" target="_blank" rel="noopener" style="text-decoration:none">Open</a></div>
+      <div class="row"><span class="v">github.com/whv3rd</span><a class="copy" href="https://github.com/whv3rd" target="_blank" rel="noopener" style="text-decoration:none">Open</a></div>
+    </div>
+  </section>
+
+  <footer><span>© 2026 Will Vinton</span><span>Wilmington, Delaware</span></footer>
+</div>
+
+<script>
+document.getElementById('copyEmail').addEventListener('click', function(){
+  var b=this, t=document.getElementById('email').textContent;
+  function done(){b.textContent='Copied';setTimeout(function(){b.textContent='Copy email'},1600)}
+  function fallback(){var r=document.createRange();r.selectNodeContents(document.getElementById('email'));var s=getSelection();s.removeAllRanges();s.addRange(r);b.textContent='Selected'}
+  try{navigator.clipboard.writeText(t).then(done,fallback)}catch(e){fallback()}
+});
+</script>
