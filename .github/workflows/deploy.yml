@@ -25,6 +25,8 @@ env:
   # Branch of whv3rd/Springboard to publish. Override with the repo variable SPRINGBOARD_REF.
   SPRINGBOARD_REF: ${{ vars.SPRINGBOARD_REF || 'main' }}
   SPRINGBOARD_BASE: /springboard
+  # Google Tag Manager container, injected into every Springboard page.
+  GTM_ID: ${{ vars.GTM_ID || 'GTM-W64VTKTX' }}
 
 jobs:
   build:
@@ -64,6 +66,7 @@ jobs:
           npm ci
           npx astro build --site https://willvinton.com --base "$SPRINGBOARD_BASE"
           node ../site/.github/scripts/prefix-base.mjs dist "$SPRINGBOARD_BASE"
+          node ../site/.github/scripts/inject-gtm.mjs dist "$GTM_ID"
 
       - name: Assemble site
         run: |
