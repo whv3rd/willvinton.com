@@ -64,7 +64,7 @@ jobs:
           PUBLIC_KLAVIYO_LIST_ID: ${{ vars.PUBLIC_KLAVIYO_LIST_ID }}
         run: |
           npm ci
-          npx astro build --site https://willvinton.com --base "$SPRINGBOARD_BASE"
+          npx astro build --site https://www.willvinton.com --base "$SPRINGBOARD_BASE"
           node ../site/.github/scripts/prefix-base.mjs dist "$SPRINGBOARD_BASE"
           node ../site/.github/scripts/inject-gtm.mjs dist "$GTM_ID"
           # Internal design reference: keep it in `astro dev`, off the live site.
