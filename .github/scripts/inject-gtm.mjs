@@ -19,8 +19,9 @@ for (const file of await readdir(dir, { recursive: true })) {
   const path = join(dir, file);
   const before = await readFile(path, 'utf8');
   if (before.includes(`gtm.js?id=`) || !/<head[^>]*>/i.test(before)) continue;
+  const anchor = /<meta charset[^>]*>/i.test(before) ? /<meta charset[^>]*>/i : /<head[^>]*>/i;
   const after = before
-    .replace(/<meta charset[^>]*>|<head[^>]*>/i, (m) => m + head)
+    .replace(anchor, (m) => m + head)
     .replace(/<body[^>]*>/i, (m) => m + body);
   await writeFile(path, after);
   changed++;
