@@ -1,14 +1,15 @@
 name: Deploy site
 
-# Builds willvinton.com plus the Springboard blog (whv3rd/Springboard) into one
-# GitHub Pages site, with Springboard served at /springboard/.
+# Builds willvinton.com plus Springsboard AI (repo: whv3rd/Springboard) into one
+# GitHub Pages site, with Springsboard served at /springsboard/. Old /springboard/
+# URLs get redirect pages to their new addresses.
 # Requires: Settings -> Pages -> Source = "GitHub Actions".
 
 on:
   push:
     branches: [main]
   workflow_dispatch:
-  # Picks up new Springboard posts (including ones scheduled by date) once a day.
+  # Picks up new Springsboard posts (including ones scheduled by date) once a day.
   schedule:
     - cron: '17 10 * * *'
 
@@ -24,8 +25,10 @@ concurrency:
 env:
   # Branch of whv3rd/Springboard to publish. Override with the repo variable SPRINGBOARD_REF.
   SPRINGBOARD_REF: ${{ vars.SPRINGBOARD_REF || 'main' }}
-  SPRINGBOARD_BASE: /springboard
-  # Google Tag Manager container, injected into every Springboard page.
+  SPRINGBOARD_BASE: /springsboard
+  # Where the site lived before the rename; every page there redirects to the new base.
+  SPRINGBOARD_OLD_BASE: /springboard
+  # Google Tag Manager container, injected into every Springsboard page.
   GTM_ID: ${{ vars.GTM_ID || 'GTM-W64VTKTX' }}
 
 jobs:
@@ -76,6 +79,7 @@ jobs:
           rsync -a --exclude '.git' --exclude '.github' --exclude 'README.md' site/ _site/
           mkdir -p "_site${SPRINGBOARD_BASE}"
           cp -R springboard/dist/. "_site${SPRINGBOARD_BASE}/"
+          node site/.github/scripts/redirect-old-base.mjs _site "$SPRINGBOARD_BASE" "$SPRINGBOARD_OLD_BASE" https://www.willvinton.com
 
       - uses: actions/configure-pages@v5
 
