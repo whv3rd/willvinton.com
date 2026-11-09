@@ -61,20 +61,28 @@ p{margin:0}
 .rel{position:relative;z-index:1}
 
 /* header */
-.top{position:sticky;top:0;z-index:50;backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);background:color-mix(in srgb,var(--bg) 72%,transparent);border-bottom:1px solid transparent;transition:border-color .2s}
-.top.scrolled{border-bottom-color:var(--line)}
-.top .wrap{display:flex;justify-content:space-between;align-items:center;gap:16px;height:68px}
-.mark{font:800 1.1rem/1 var(--display);letter-spacing:-.01em;color:var(--ink);text-decoration:none}
-.mark span{color:var(--accent)}
-.top nav{display:flex;align-items:center;gap:26px}
-.top nav a{color:var(--muted);text-decoration:none;font-size:.92rem}
-.top nav a:hover{color:var(--ink)}
+.top{position:sticky;top:0;z-index:50;backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);background:color-mix(in srgb,var(--bg) 72%,transparent);border-bottom:1px solid var(--line)}
+.top .wrap{display:flex;justify-content:space-between;align-items:center;gap:16px;height:72px}
+/* site tabs: this site is active and underlined on the header edge; Springboard links across */
+.sites{display:flex;align-items:center;gap:16px;height:100%}
+.site{position:relative;display:inline-flex;align-items:center;gap:10px;height:100%;color:var(--muted);text-decoration:none;font:500 .92rem/1 var(--body);white-space:nowrap}
+.site:hover{color:var(--ink)}
+.site.on{color:var(--ink);font:800 1.08rem/1 var(--display);letter-spacing:-.01em}
+.site.on::after{content:"";position:absolute;left:0;right:0;bottom:-1px;height:2px;background:var(--accent)}
+.smark{width:22px;height:22px;flex:none}
+span.smark{display:inline-grid;place-items:center;border-radius:5px;background:var(--ink);color:var(--bg);font:800 .8rem/1 var(--display)}
+.site:not(.on) span.smark{background:var(--muted)}
+.sout{width:12px;height:12px}
+.sdiv{width:1px;height:20px;background:var(--line)}
+.top .sections{display:flex;align-items:center;gap:26px}
+.top .sections a{color:var(--muted);text-decoration:none;font-size:.92rem}
+.top .sections a:hover{color:var(--ink)}
 .btn{display:inline-flex;align-items:center;gap:8px;padding:12px 20px;border-radius:999px;font:600 .95rem/1 var(--body);text-decoration:none;border:1px solid var(--line);color:var(--ink);background:transparent;cursor:pointer;transition:border-color .2s,transform .2s}
 .btn:hover{border-color:var(--accent)}
 .btn.primary{background:var(--ink);color:var(--on-ink);border-color:var(--ink)}
 .btn.primary:hover{transform:translateY(-1px)}
 .btn.sm{padding:9px 14px;font-size:.85rem}
-.top nav .btn{color:var(--on-ink)}
+.top .sections .btn{color:var(--on-ink)}
 .btn .icon{width:16px;height:16px}
 
 /* hero */
@@ -241,7 +249,7 @@ footer{border-top:1px solid var(--line)}
 footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;padding-block:28px 40px;color:var(--muted);font-size:.85rem}
 
 @media (max-width:1000px){
-  .top nav a:not(.btn){display:none}
+  .top .sections a:not(.btn){display:none}
   .bento{grid-template-columns:1fr 1fr}
   .tile.big{grid-row:auto;grid-column:1 / -1}
   .tile.wide{grid-column:1 / -1}
@@ -267,6 +275,11 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;
   .job .body{padding-left:0}
 }
 @media (max-width:560px){
+  .site:not(.on) .slabel{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+  .sites{gap:12px}
+  .site.on{font-size:1rem}
+  .top .sections .btn{white-space:nowrap;padding:9px 12px}
+  .top .sections .btn .icon{display:none}
   .bento{grid-template-columns:1fr}
   .tile.wide{flex-direction:column;align-items:stretch;gap:16px}
   .feature .arc{opacity:.35}
@@ -295,13 +308,16 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;
 
 <header class="top" id="top">
   <div class="wrap">
-    <a class="mark" href="#main">willvinton<span>.</span>com</a>
-    <nav aria-label="Sections">
+    <nav class="sites" aria-label="Sites">
+      <a class="site on" href="#main" aria-current="true"><span class="smark" aria-hidden="true">W</span><span class="slabel">willvinton.com</span></a>
+      <span class="sdiv" aria-hidden="true"></span>
+      <a class="site" href="/springboard/"><svg class="smark" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="7" fill="currentColor"/><path d="M8 22h16M11 22l5-12 5 12" stroke="var(--bg)" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="slabel">Springboard</span><svg class="icon sout" aria-hidden="true"><use href="#i-arrow-ur"/></svg></a>
+    </nav>
+    <nav class="sections" aria-label="Sections">
       <a href="#curve">The curve</a>
       <a href="#results">Results</a>
       <a href="#building">Building</a>
       <a href="#work">Work</a>
-      <a href="/springboard/">Springboard</a>
       <a class="btn primary sm" href="#contact">Say hello <svg class="icon" aria-hidden="true"><use href="#i-arrow-ur"/></svg></a>
     </nav>
   </div>
@@ -593,10 +609,6 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;
 
 <script>
 (function(){
-  var top=document.querySelector('.top');
-  function onScroll(){top.classList.toggle('scrolled',window.scrollY>8)}
-  addEventListener('scroll',onScroll,{passive:true});onScroll();
-
   var curve=document.getElementById('curve');
   if('IntersectionObserver' in window){
     var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){curve.classList.add('in');io.disconnect()}})},{threshold:.15});
