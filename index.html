@@ -5,9 +5,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Will Vinton</title>
 <meta name="claude:viewport-fit-sides" content="cover">
-<meta name="description" content="Will Vinton is an ecommerce, digital product and technology leader. Resume, results, and current and upcoming projects.">
+<meta name="description" content="Will Vinton builds and runs online businesses, from a self-funded startup to $320M a year in digital revenue. Ecommerce, digital product and technology leader.">
+<meta name="theme-color" content="#0b0d0c">
 <meta property="og:title" content="Will Vinton">
-<meta property="og:description" content="Ecommerce, digital product and technology leader. Resume, results and projects.">
+<meta property="og:description" content="Ecommerce, digital product and technology leader. Seventeen years of building and running online businesses.">
 <meta property="og:image" content="https://www.willvinton.com/headshot.jpg">
 <meta property="og:url" content="https://www.willvinton.com/">
 <link rel="canonical" href="https://www.willvinton.com/">
@@ -19,131 +20,265 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
 })(window,document,'script','dataLayer','GTM-W64VTKTX');</script>
 <!-- End Google Tag Manager -->
+<script>document.documentElement.classList.add('js')</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Will Vinton","url":"https://www.willvinton.com/","image":"https://www.willvinton.com/headshot.jpg","jobTitle":"Ecommerce, digital product and technology leader","address":{"@type":"PostalAddress","addressLocality":"Wilmington","addressRegion":"DE","addressCountry":"US"},"alumniOf":{"@type":"CollegeOrUniversity","name":"Northeastern University"},"sameAs":["https://www.linkedin.com/in/will-vinton","https://github.com/whv3rd"]}</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Schibsted+Grotesk:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
 <style>
-/* Layout: one narrow reading column with a wide hero; career reads as a ledger (dates in a mono left rail), work grouped by status: Now, Shipped, Next. */
+/* Dark-first. Sections vary in rhythm on purpose: wide hero, a marquee strip, a drawn career curve,
+   a bento of results, a slim band, a feature card, a collapsible work list and a centered close. */
 :root{
-  --bg:#F2F4F1; --surface:#FFFFFF; --ink:#141C1A; --muted:#56625E; --line:#D6DCD8;
-  --accent:#2340D8; --accent-soft:#E3E8FC; --live:#137A4B; --next:#9A5B00;
+  --bg:#0B0D0C; --surface:#131715; --surface-2:#181D1B; --ink:#EEF1EE; --muted:#8E9893; --line:#242A27;
+  --accent:#9AABFF; --accent-soft:#1A2147; --live:#5BD69A; --next:#F0B45A; --on-ink:#0B0D0C;
+  --glow:154,171,255; --grain:.05; color-scheme:dark;
   --display:"Bricolage Grotesque", "Arial Narrow", system-ui, sans-serif;
   --body:"Schibsted Grotesk", system-ui, -apple-system, "Segoe UI", sans-serif;
   --mono:"JetBrains Mono", ui-monospace, "SF Mono", Menlo, monospace;
+  --gutter:max(20px, env(safe-area-inset-left,0px));
 }
-@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
-  --bg:#0E1312; --surface:#161D1B; --ink:#E7ECEA; --muted:#98A5A0; --line:#28322F;
-  --accent:#8C9FFF; --accent-soft:#1E2550; --live:#4FCB8E; --next:#E8A84A; color-scheme:dark}}
-:root[data-theme="dark"]{
-  --bg:#0E1312; --surface:#161D1B; --ink:#E7ECEA; --muted:#98A5A0; --line:#28322F;
-  --accent:#8C9FFF; --accent-soft:#1E2550; --live:#4FCB8E; --next:#E8A84A; color-scheme:dark}
+@media (prefers-color-scheme: light){:root:not([data-theme="dark"]){
+  --bg:#F2F4F1; --surface:#FFFFFF; --surface-2:#F7F8F6; --ink:#141C1A; --muted:#56625E; --line:#D6DCD8;
+  --accent:#2340D8; --accent-soft:#E3E8FC; --live:#137A4B; --next:#9A5B00; --on-ink:#F2F4F1;
+  --glow:35,64,216; --grain:.035; color-scheme:light}}
+:root[data-theme="light"]{
+  --bg:#F2F4F1; --surface:#FFFFFF; --surface-2:#F7F8F6; --ink:#141C1A; --muted:#56625E; --line:#D6DCD8;
+  --accent:#2340D8; --accent-soft:#E3E8FC; --live:#137A4B; --next:#9A5B00; --on-ink:#F2F4F1;
+  --glow:35,64,216; --grain:.035; color-scheme:light}
 
 *{box-sizing:border-box}
-html,body{margin:0}img{max-width:100%}
-body{background:var(--bg);color:var(--ink);font:400 1.0625rem/1.6 var(--body);-webkit-font-smoothing:antialiased}
-.wrap{max-width:68rem;margin:0 auto;padding-left:max(16px, env(safe-area-inset-left,0px));padding-right:max(16px, env(safe-area-inset-right,0px))}
+html,body{margin:0}
+html{scroll-behavior:smooth;scroll-padding-top:84px}
+img,svg{max-width:100%}
+body{background:var(--bg);color:var(--ink);font:400 1.0625rem/1.65 var(--body);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+/* film grain over everything */
+body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:100;opacity:var(--grain);
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+.wrap{max-width:70rem;margin:0 auto;padding-left:var(--gutter);padding-right:max(20px, env(safe-area-inset-right,0px))}
 a{color:var(--accent);text-underline-offset:3px}
-a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
-h1,h2,h3{font-family:var(--display);text-wrap:balance;margin:0;line-height:1.05}
+a:focus-visible,button:focus-visible,summary:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:6px}
+h1,h2,h3,h4{font-family:var(--display);text-wrap:balance;margin:0;line-height:1.02}
 p{margin:0}
-.label{font:500 .72rem/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.label{font:500 .72rem/1.7 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--accent)}
+.muted{color:var(--muted)}
+.h2{font-size:clamp(2.2rem,5vw,3.75rem);font-weight:700;letter-spacing:-.03em;margin-top:14px}
+.icon{width:20px;height:20px;flex:none;fill:none;stroke:currentColor;stroke-width:1.75;stroke-linecap:round;stroke-linejoin:round}
+.glow{--a:.16;position:absolute;pointer-events:none;z-index:0;background:radial-gradient(closest-side,rgba(var(--glow),var(--a)),rgba(var(--glow),calc(var(--a) * .35)) 55%,transparent)}
+.rel{position:relative;z-index:1}
 
-/* top bar */
-.top{display:flex;justify-content:space-between;align-items:center;gap:16px;padding-block:22px;flex-wrap:wrap}
+/* header */
+.top{position:sticky;top:0;z-index:50;backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);background:color-mix(in srgb,var(--bg) 72%,transparent);border-bottom:1px solid transparent;transition:border-color .2s}
+.top.scrolled{border-bottom-color:var(--line)}
+.top .wrap{display:flex;justify-content:space-between;align-items:center;gap:16px;height:68px}
 .mark{font:800 1.1rem/1 var(--display);letter-spacing:-.01em;color:var(--ink);text-decoration:none}
 .mark span{color:var(--accent)}
-nav{display:flex;gap:20px;flex-wrap:wrap}
-nav a{color:var(--muted);text-decoration:none;font-size:.95rem}
-nav a:hover{color:var(--ink)}
+.top nav{display:flex;align-items:center;gap:26px}
+.top nav a{color:var(--muted);text-decoration:none;font-size:.92rem}
+.top nav a:hover{color:var(--ink)}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:12px 20px;border-radius:999px;font:600 .95rem/1 var(--body);text-decoration:none;border:1px solid var(--line);color:var(--ink);background:transparent;cursor:pointer;transition:border-color .2s,transform .2s}
+.btn:hover{border-color:var(--accent)}
+.btn.primary{background:var(--ink);color:var(--on-ink);border-color:var(--ink)}
+.btn.primary:hover{transform:translateY(-1px)}
+.btn.sm{padding:9px 14px;font-size:.85rem}
+.top nav .btn{color:var(--on-ink)}
+.btn .icon{width:16px;height:16px}
 
 /* hero */
-.hero{display:grid;grid-template-columns:1.25fr 1fr;gap:48px;align-items:end;padding-block:56px 72px;border-bottom:1px solid var(--line)}
-.hero > *{min-width:0}
-.me{display:flex;align-items:center;gap:18px}
-.portrait{width:112px;height:112px;max-width:100%;border-radius:50%;object-fit:cover;object-position:50% 30%;border:3px solid var(--surface);box-shadow:0 0 0 1px var(--line)}
-.me .label{line-height:1.7}
-.me .open{color:var(--accent)}
-.hero h1{font-size:clamp(2.8rem,7.5vw,5.6rem);font-weight:800;letter-spacing:-.035em}
-.hero .role{margin-top:20px;font:500 1.25rem/1.4 var(--body);max-width:34ch}
-.hero .intro{margin-top:18px;color:var(--muted);max-width:52ch}
-.cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
-.btn{display:inline-flex;align-items:center;gap:8px;padding:11px 18px;border-radius:999px;font:600 .95rem/1 var(--body);text-decoration:none;border:1px solid var(--ink);color:var(--ink);background:transparent;cursor:pointer}
-.btn.primary{background:var(--ink);color:var(--bg)}
-.btn:hover{border-color:var(--accent)}
-.chart{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:20px 20px 14px}
-.chart .big{font:800 clamp(2rem,4.4vw,2.8rem)/1 var(--display);letter-spacing:-.03em;margin-top:10px}
-.chart .big b{color:var(--accent);font-weight:800}
-.chart p.cap{color:var(--muted);font-size:.9rem;margin-top:6px}
-.chart svg{display:block;width:100%;height:auto;margin-top:14px;overflow:visible}
+.hero{position:relative;overflow:hidden;padding:clamp(56px,9vw,120px) 0 clamp(64px,9vw,112px)}
+.hero::before{content:"";position:absolute;inset:0;z-index:0;
+  background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);background-size:64px 64px;background-position:-1px -1px;
+  -webkit-mask-image:radial-gradient(ellipse 70% 70% at 70% 40%,#000 10%,transparent 75%);mask-image:radial-gradient(ellipse 70% 70% at 70% 40%,#000 10%,transparent 75%);opacity:.7}
+.hero .glow.a{--a:.22;width:820px;height:820px;right:-8%;top:-260px}
+.hero .glow.b{--a:.1;width:600px;height:480px;left:-240px;bottom:-200px}
+.hero-grid{display:grid;grid-template-columns:1.45fr 1fr;gap:56px;align-items:center}
+.hero-grid > *{min-width:0}
+.pill{display:inline-flex;align-items:center;gap:10px;padding:7px 14px 7px 10px;border-radius:999px;border:1px solid var(--line);background:color-mix(in srgb,var(--surface) 80%,transparent);font-size:.85rem;color:var(--muted)}
+.pill b{color:var(--ink);font-weight:500}
+.dot{width:8px;height:8px;border-radius:50%;background:var(--live);flex:none;box-shadow:0 0 0 0 color-mix(in srgb,var(--live) 60%,transparent)}
+@media (prefers-reduced-motion:no-preference){.dot.pulse{animation:pulse 2.2s infinite}@keyframes pulse{70%{box-shadow:0 0 0 8px transparent}100%{box-shadow:0 0 0 0 transparent}}}
+.hero h1{font-size:clamp(3.4rem,10.5vw,8.5rem);font-weight:800;letter-spacing:-.045em;line-height:.92;margin-top:28px}
+.hero .intro{margin-top:28px;font:400 clamp(1.15rem,1.8vw,1.4rem)/1.5 var(--body);color:var(--muted);max-width:36ch}
+.hero .intro strong{color:var(--ink);font-weight:500}
+.cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:36px}
 
-section{padding-block:72px;border-bottom:1px solid var(--line)}
-.head{display:flex;justify-content:space-between;align-items:baseline;gap:16px;flex-wrap:wrap;margin-bottom:36px}
-.head h2{font-size:clamp(1.9rem,4vw,2.6rem);font-weight:700;letter-spacing:-.025em}
+.portrait-wrap{position:relative;width:min(100%,360px);aspect-ratio:1;margin-left:auto}
+.portrait-wrap .orbit{position:absolute;inset:-22px;border-radius:50%;border:1px dashed color-mix(in srgb,var(--accent) 45%,transparent)}
+.portrait-wrap .orbit::after{content:"";position:absolute;width:10px;height:10px;border-radius:50%;background:var(--accent);top:12%;left:12%;box-shadow:0 0 16px rgba(var(--glow),.8)}
+@media (prefers-reduced-motion:no-preference){.portrait-wrap .orbit{animation:spin 40s linear infinite}@keyframes spin{to{transform:rotate(360deg)}}}
+.portrait{position:relative;width:100%;height:100%;border-radius:50%;object-fit:cover;object-position:50% 30%;border:1px solid var(--line);display:block}
+.badge{position:absolute;right:-14px;bottom:8%;background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:14px 18px;box-shadow:0 20px 40px -20px rgba(0,0,0,.6)}
+.badge strong{display:block;font:800 2.2rem/1 var(--display);letter-spacing:-.03em;color:var(--accent)}
+.badge span{font:500 .7rem/1.6 var(--mono);letter-spacing:.06em;color:var(--muted)}
+.loc{position:absolute;left:-8px;top:6%;font:500 .72rem/1 var(--mono);letter-spacing:.06em;padding:8px 12px}
+.loc .icon{width:14px;height:14px;color:var(--accent)}
 
-/* results */
-.results{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:14px;overflow:hidden}
-.result{background:var(--surface);padding:24px;display:flex;flex-direction:column;gap:8px;min-width:0}
-.result .n{font:700 1.9rem/1 var(--display);letter-spacing:-.02em;font-variant-numeric:tabular-nums}
-.result p{color:var(--muted);font-size:.95rem}
+/* tool strip */
+.strip{border-block:1px solid var(--line);background:var(--surface);overflow:hidden;padding-block:22px}
+.marquee{display:flex;width:max-content}
+.marquee ul{display:flex;align-items:center;gap:0;margin:0;padding:0;list-style:none}
+.marquee li{font:500 .9rem/1 var(--mono);color:var(--muted);padding-inline:28px;display:flex;align-items:center;gap:28px;white-space:nowrap}
+.marquee li::after{content:"";width:4px;height:4px;border-radius:50%;background:var(--line)}
+.marquee li.hi{color:var(--accent)}
+@media (prefers-reduced-motion:no-preference){.marquee{animation:slide 45s linear infinite}.strip:hover .marquee{animation-play-state:paused}@keyframes slide{to{transform:translateX(-50%)}}}
+@media (prefers-reduced-motion:reduce){.marquee{width:auto}.marquee ul{flex-wrap:wrap;justify-content:center;row-gap:14px}.marquee ul[aria-hidden]{display:none}}
 
-/* experience ledger */
-.job{display:grid;grid-template-columns:11rem 1fr;gap:28px;padding-block:28px;border-top:1px solid var(--line)}
-.job:first-of-type{border-top:0;padding-top:0}
-.job > *{min-width:0}
-.when{font:500 .82rem/1.5 var(--mono);color:var(--muted);font-variant-numeric:tabular-nums}
-.job h3{font-size:1.45rem;font-weight:700;letter-spacing:-.015em}
-.job .title{font-weight:600;margin-top:4px}
-.job .where{color:var(--muted);font-size:.92rem}
-.job .sum{margin-top:12px;max-width:65ch}
-.job ul{margin:12px 0 0;padding-left:1.1rem;display:grid;gap:6px;max-width:65ch}
-.job li::marker{color:var(--accent)}
-.sub{margin-top:18px;padding-top:14px;border-top:1px dashed var(--line)}
+/* the curve */
+.curve{position:relative;padding-block:clamp(80px,11vw,150px) clamp(72px,9vw,120px);overflow:hidden}
+.curve .glow{--a:.12;width:1000px;height:560px;left:22%;top:36%}
+.curve-head{display:grid;grid-template-columns:1fr minmax(0,22rem);gap:40px;align-items:end;margin-bottom:56px}
+.curve-head p{color:var(--muted)}
+.chart-box{position:relative}
+.chart-box svg{display:block;width:100%;height:auto;overflow:visible}
+.ms{list-style:none;margin:0;padding:0}
+.ms li{position:absolute;left:calc(var(--x) / 1056 * 100%);top:calc(var(--y) / 460 * 100%);width:max-content;max-width:190px;background:color-mix(in srgb,var(--surface) 92%,transparent);border:1px solid var(--line);border-radius:10px;padding:9px 12px;font-size:.82rem;line-height:1.35;backdrop-filter:blur(6px)}
+.ms li b{display:block;font-weight:600;color:var(--ink)}
+.ms li span{font:500 .72rem/1.5 var(--mono);color:var(--accent);white-space:nowrap}
+.ms li.c-next span{color:var(--next)} .ms li.c-live span{color:var(--live)}
+.ms li em{display:none;font-style:normal;font:500 .72rem/1 var(--mono);color:var(--muted)}
+.phase{font:500 10px var(--mono);letter-spacing:.08em;fill:var(--muted)}
+.yr{font:500 11px var(--mono);fill:var(--muted)}
+.js .curve .line-path{stroke-dasharray:1;stroke-dashoffset:1}
+.js .curve .area,.js .curve .pt,.js .ms li{opacity:0}
+.js .ms li{transform:translateY(8px)}
+.curve.in .line-path{stroke-dashoffset:0;transition:stroke-dashoffset 2.2s cubic-bezier(.6,0,.3,1)}
+.curve.in .area{opacity:1;transition:opacity 1.2s 1.4s}
+.curve.in .pt,.curve.in .ms li{opacity:1;transform:none;transition:opacity .5s calc(var(--d) * 1s),transform .5s calc(var(--d) * 1s)}
+@media (prefers-reduced-motion:reduce){.js .curve .line-path{stroke-dashoffset:0}.js .curve .area,.js .curve .pt,.js .ms li{opacity:1;transform:none}}
+
+/* results bento */
+.results{position:relative;background:var(--surface);border-block:1px solid var(--line);padding-block:clamp(80px,10vw,130px)}
+.results .h2{margin-bottom:48px}
+.bento{display:grid;grid-template-columns:1.1fr 1fr 1fr;grid-template-rows:auto auto auto;gap:16px}
+.tile{background:var(--bg);border:1px solid var(--line);border-radius:20px;padding:26px;display:flex;flex-direction:column;gap:10px;min-width:0;position:relative;overflow:hidden;transition:border-color .25s,transform .25s}
+.tile:hover{border-color:color-mix(in srgb,var(--accent) 50%,var(--line));transform:translateY(-2px)}
+.tile.big{grid-row:1 / span 3}
+.tile.wide{grid-column:2 / span 2;flex-direction:row;align-items:center;gap:32px}
+.tile .n{font:700 clamp(1.8rem,3vw,2.5rem)/1.05 var(--display);letter-spacing:-.03em;font-variant-numeric:tabular-nums}
+.tile.big .n{font-size:clamp(2.4rem,4.4vw,3.4rem);font-weight:800;margin-top:auto}
+.tile p{color:var(--muted);font-size:.95rem}
+.viz{margin-bottom:10px}
+.tile.big .viz{margin:18px 0 26px}
+.bars{display:flex;align-items:flex-end;gap:8px;height:56px}
+.bars i{display:block;width:28px;border-radius:5px;background:color-mix(in srgb,var(--muted) 45%,transparent)}
+.bars i:last-child{background:var(--accent)}
+.dots{height:56px;background-image:radial-gradient(circle,var(--accent) 2.6px,transparent 3.2px);background-size:15px 15px;-webkit-mask-image:linear-gradient(90deg,#000 55%,rgba(0,0,0,.25));mask-image:linear-gradient(90deg,#000 55%,rgba(0,0,0,.25))}
+.speed{flex:1;display:grid;gap:10px;min-width:0}
+.speed div{display:flex;align-items:center;gap:12px;font:500 .72rem/1 var(--mono);color:var(--muted)}
+.speed i{display:block;height:10px;border-radius:99px;background:var(--line)}
+.speed div:last-child i{background:var(--accent)}
+.speed div:last-child{color:var(--accent)}
+
+/* what I do */
+.what{position:relative;overflow:hidden;padding-block:clamp(72px,9vw,110px)}
+.what .glow{--a:.14;width:800px;height:600px;right:-260px;top:-140px}
+.what-grid{display:grid;grid-template-columns:minmax(0,19rem) 1fr;gap:clamp(40px,7vw,96px);align-items:start}
+.what-grid .h2{font-size:clamp(2rem,4.2vw,3.2rem)}
+.pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(24px,3vw,40px)}
+.pillar{min-width:0}
+.ibox{display:inline-grid;place-items:center;width:48px;height:48px;border-radius:14px;background:var(--accent-soft);border:1px solid color-mix(in srgb,var(--accent) 35%,transparent);color:var(--accent)}
+.ibox .icon{width:22px;height:22px}
+.pillar h3{font:700 1.35rem/1.15 var(--display);letter-spacing:-.01em;margin:18px 0 10px}
+.pillar p{color:var(--muted);font-size:.98rem}
+
+/* now building */
+.building{padding-block:clamp(80px,10vw,140px)}
+.building .h2{margin-bottom:48px}
+.build-grid{display:grid;grid-template-columns:1.55fr 1fr;gap:16px}
+.feature{position:relative;overflow:hidden;border-radius:24px;padding:clamp(28px,3.5vw,44px);border:1px solid color-mix(in srgb,var(--accent) 40%,transparent);
+  background:linear-gradient(135deg,var(--accent-soft),var(--surface) 75%);display:flex;flex-direction:column;gap:18px;min-width:0;text-decoration:none;color:inherit}
+.feature .arc{position:absolute;right:28px;bottom:28px;width:min(34%,210px);height:auto;pointer-events:none}
+.feature .kind{display:flex;align-items:center;gap:14px;font:500 .72rem/1.4 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--accent)}
+.feature .kind .ibox{background:color-mix(in srgb,var(--bg) 55%,transparent)}
+.feature h3{font:800 clamp(2.4rem,5vw,3.4rem)/1 var(--display);letter-spacing:-.035em;margin-top:6px}
+.feature p{color:var(--muted);max-width:30rem;position:relative}
+.feature .go{margin-top:auto;padding-top:12px;display:inline-flex;align-items:center;gap:8px;font-weight:600;color:var(--accent)}
+.feature:hover .go .icon{transform:translateX(3px)}
+.go .icon{width:16px;height:16px;transition:transform .2s}
+.feature .tags{display:flex;flex-wrap:wrap;gap:6px}
+.feature .tags span{font:400 .72rem/1 var(--mono);padding:6px 8px;border-radius:6px;background:color-mix(in srgb,var(--bg) 55%,transparent);border:1px solid var(--line)}
+.side{display:grid;gap:12px;align-content:start}
+.mini{display:flex;align-items:center;gap:16px;padding:18px 18px 18px 16px;border-radius:16px;background:var(--surface);border:1px solid var(--line);min-width:0}
+.mini .ibox{width:42px;height:42px;border-radius:12px}
+.mini .ibox .icon{width:20px;height:20px}
+.mini > div{flex:1;min-width:0}
+.mini b{display:block;font-weight:600;font-size:.97rem;line-height:1.3}
+.mini p{color:var(--muted);font-size:.86rem;line-height:1.45;margin-top:2px}
+.chip{display:inline-flex;align-items:center;gap:6px;font:500 .68rem/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;padding:6px 9px;border-radius:999px;border:1px solid currentColor;flex:none}
+.chip::before{content:"";width:6px;height:6px;border-radius:50%;background:currentColor}
+.chip.now{color:var(--live)} .chip.next{color:var(--next)}
 
 /* work */
-.group{margin-top:40px}
-.group:first-of-type{margin-top:0}
-.ghead{display:flex;align-items:center;gap:12px;margin-bottom:16px}
-.ghead h3{font-size:1.3rem;font-weight:700}
-.chip{font:500 .7rem/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;padding:6px 9px;border-radius:999px;border:1px solid currentColor}
-.chip.now{color:var(--live)} .chip.done{color:var(--muted)} .chip.next{color:var(--next)}
-.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-.card{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:22px;display:flex;flex-direction:column;gap:10px;min-width:0}
-.card .kind{font:500 .72rem/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--accent)}
-.card h4{margin:0;font:700 1.15rem/1.2 var(--display);letter-spacing:-.01em}
-.card p{color:var(--muted);font-size:.95rem}
-.card .tags{margin-top:auto;padding-top:6px;display:flex;flex-wrap:wrap;gap:6px}
-.card .tags span{font:400 .72rem/1 var(--mono);padding:5px 7px;border-radius:5px;background:var(--accent-soft);color:var(--ink)}
-
-/* stack */
-.stack{display:grid;grid-template-columns:repeat(3,1fr);gap:28px 40px}
-.stack > div{min-width:0}
-.stack h3{font:600 .95rem/1.3 var(--body);margin-bottom:8px}
-.stack p{color:var(--muted);font-size:.95rem}
-.edu{margin-top:44px;display:flex;gap:12px 28px;flex-wrap:wrap;align-items:baseline}
-.edu strong{font-family:var(--display);font-size:1.2rem}
+.work{background:var(--surface);border-block:1px solid var(--line);padding-block:clamp(80px,10vw,130px)}
+.work-grid{display:grid;grid-template-columns:minmax(0,20rem) 1fr;gap:clamp(40px,7vw,96px);align-items:start}
+.work-aside{position:sticky;top:110px;display:grid;gap:20px;justify-items:start}
+.work-aside p{color:var(--muted);font-size:.98rem}
+.edu{border-top:1px solid var(--line);padding-top:18px;width:100%}
+.edu strong{display:block;font:700 1.1rem/1.3 var(--display);margin-top:6px}
+.jobs{border-top:1px solid var(--line)}
+.job{border-bottom:1px solid var(--line)}
+.job summary{list-style:none;display:grid;grid-template-columns:7.5rem 1fr auto;gap:20px;align-items:center;padding-block:24px;cursor:pointer}
+.job summary::-webkit-details-marker{display:none}
+.job .when{font:500 .85rem/1.4 var(--mono);color:var(--muted);font-variant-numeric:tabular-nums}
+.job h3{font:700 clamp(1.2rem,2vw,1.45rem)/1.2 var(--display);letter-spacing:-.015em}
+.job .role{color:var(--muted);font-size:.95rem;margin-top:3px}
+.tog{display:grid;place-items:center;width:38px;height:38px;border-radius:50%;border:1px solid var(--line);transition:transform .25s,border-color .2s;color:var(--ink)}
+.tog .icon{width:16px;height:16px}
+.job summary:hover .tog{border-color:var(--accent)}
+.job[open] .tog{transform:rotate(180deg)}
+.job .body{padding:0 0 28px calc(7.5rem + 20px);max-width:52rem}
+.job .body > p{color:var(--muted);margin-bottom:10px}
+.job ul{margin:0;padding-left:1.1rem;display:grid;gap:7px}
+.job li::marker{color:var(--accent)}
+.job .sub{margin-top:16px;font-weight:600;font-size:.95rem}
 
 /* contact */
-.contact{padding-block:80px;border-bottom:0}
-.contact h2{font-size:clamp(2.2rem,6vw,4rem);font-weight:800;letter-spacing:-.03em;max-width:16ch}
-.contact .lede{color:var(--muted);margin-top:16px;max-width:52ch}
-.rows{margin-top:32px;display:grid;gap:0;border-top:1px solid var(--line);max-width:44rem}
-.row{display:flex;justify-content:space-between;align-items:center;gap:16px;padding-block:16px;border-bottom:1px solid var(--line);flex-wrap:wrap}
-.row .v{font:500 1.05rem/1.3 var(--mono);user-select:all;overflow-wrap:anywhere;min-width:0}
-.copy{font:500 .85rem/1 var(--body);padding:8px 14px;border-radius:999px;border:1px solid var(--line);background:var(--surface);color:var(--ink);cursor:pointer}
-footer{padding-block:28px 40px;color:var(--muted);font-size:.85rem;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.contact{position:relative;overflow:hidden;text-align:center;padding-block:clamp(110px,14vw,190px) clamp(90px,11vw,140px)}
+.contact .glow{--a:.18;width:1200px;height:760px;left:50%;top:50%;transform:translate(-50%,-50%)}
+.contact h2{font-size:clamp(2.6rem,8vw,6rem);font-weight:800;letter-spacing:-.04em;line-height:.98;margin:18px auto 0;max-width:13ch}
+.contact .lede{color:var(--muted);margin:24px auto 0;max-width:38rem;font-size:1.1rem}
+.email{display:inline-flex;align-items:center;gap:6px;margin-top:40px;padding:6px;border-radius:999px;background:var(--ink);max-width:100%}
+.email a{display:inline-flex;align-items:center;gap:12px;padding:12px 18px;color:var(--on-ink);text-decoration:none;font:500 clamp(.9rem,2.2vw,1.1rem)/1.2 var(--mono);overflow-wrap:anywhere;min-width:0}
+.email a .icon{width:20px;height:20px}
+.email button{border:0;border-radius:999px;padding:12px 16px;background:color-mix(in srgb,var(--on-ink) 12%,transparent);color:var(--on-ink);font:600 .85rem/1 var(--body);cursor:pointer;flex:none}
+.socials{display:flex;justify-content:center;gap:12px;margin-top:20px;flex-wrap:wrap}
+.socials .btn{background:var(--surface)}
+.socials .btn .icon{width:18px;height:18px}
+footer{border-top:1px solid var(--line)}
+footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;padding-block:28px 40px;color:var(--muted);font-size:.85rem}
 
+@media (max-width:1000px){
+  .top nav a:not(.btn){display:none}
+  .bento{grid-template-columns:1fr 1fr}
+  .tile.big{grid-row:auto;grid-column:1 / -1}
+  .tile.wide{grid-column:1 / -1}
+  .curve-head,.what-grid,.work-grid{grid-template-columns:1fr}
+  .work-aside{position:static}
+  .build-grid{grid-template-columns:1fr}
+}
 @media (max-width:860px){
-  .hero{grid-template-columns:1fr;gap:36px;padding-block:32px 56px}
-  .results,.cards,.stack{grid-template-columns:1fr 1fr}
-  .job{grid-template-columns:1fr;gap:8px}
+  .hero-grid{grid-template-columns:1fr;gap:64px}
+  .portrait-wrap{margin:0 auto;width:min(78%,320px)}
+  /* the curve: milestones become a timeline under the chart */
+  .ms{margin-top:32px;border-left:1px solid var(--line);padding-left:20px;display:grid;gap:18px}
+  .ms li{position:relative;left:auto;top:auto;max-width:none;width:auto;background:none;border:0;padding:0;backdrop-filter:none}
+  .ms li::before{content:"";position:absolute;left:-25px;top:6px;width:9px;height:9px;border-radius:50%;background:var(--accent)}
+  .ms li.c-next::before{background:var(--next)} .ms li.c-live::before{background:var(--live)}
+  .ms li em{display:block;margin-bottom:4px}
+  .chart-box svg .phases{display:none}
+  .pillars{grid-template-columns:1fr}
+  .job summary{grid-template-columns:1fr auto;gap:4px 16px}
+  .job .when{grid-column:1}
+  .job summary > div{grid-column:1}
+  .job .tog{grid-column:2;grid-row:1 / span 2}
+  .job .body{padding-left:0}
 }
 @media (max-width:560px){
-  .results,.cards,.stack{grid-template-columns:1fr}
-  nav{gap:14px}
-  section{padding-block:56px}
-}
-@media (prefers-reduced-motion:no-preference){
-  .line-draw{stroke-dasharray:420;stroke-dashoffset:0;animation:draw 1.4s ease-out both}
-  @keyframes draw{from{stroke-dashoffset:420}to{stroke-dashoffset:0}}
+  .bento{grid-template-columns:1fr}
+  .tile.wide{flex-direction:column;align-items:stretch;gap:16px}
+  .feature .arc{opacity:.35}
+  .badge{right:-6px}
+  .badge strong{font-size:1.8rem}
 }
 </style>
 </head>
@@ -152,273 +287,342 @@ footer{padding-block:28px 40px;color:var(--muted);font-size:.85rem;display:flex;
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-W64VTKTX" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
 
-<div class="wrap">
-  <header class="top">
-    <a class="mark" href="#top">willvinton<span>.</span>com</a>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></symbol>
+  <symbol id="i-arrow-ur" viewBox="0 0 24 24"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></symbol>
+  <symbol id="i-down" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></symbol>
+  <symbol id="i-pin" viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></symbol>
+  <symbol id="i-layers" viewBox="0 0 24 24"><path d="m12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83Z"/><path d="m22 17.65-9.17 4.16a2 2 0 0 1-1.66 0L2 17.65"/><path d="m22 12.65-9.17 4.16a2 2 0 0 1-1.66 0L2 12.65"/></symbol>
+  <symbol id="i-db" viewBox="0 0 24 24"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14a9 3 0 0 0 18 0V5"/><path d="M3 12a9 3 0 0 0 18 0"/></symbol>
+  <symbol id="i-spark" viewBox="0 0 24 24"><path d="M9.94 15.5A2 2 0 0 0 8.5 14.06l-6.14-1.58a.5.5 0 0 1 0-.96L8.5 9.94A2 2 0 0 0 9.94 8.5l1.58-6.14a.5.5 0 0 1 .96 0L14.06 8.5A2 2 0 0 0 15.5 9.94l6.14 1.58a.5.5 0 0 1 0 .96L15.5 14.06a2 2 0 0 0-1.44 1.44l-1.58 6.14a.5.5 0 0 1-.96 0z"/></symbol>
+  <symbol id="i-rocket" viewBox="0 0 24 24"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/><path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"/><path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"/></symbol>
+  <symbol id="i-compass" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="m16.24 7.76-2.12 6.36-6.36 2.12 2.12-6.36 6.36-2.12z"/></symbol>
+  <symbol id="i-users" viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></symbol>
+  <symbol id="i-bag" viewBox="0 0 24 24"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></symbol>
+  <symbol id="i-drop" viewBox="0 0 24 24"><path d="M12 22a7 7 0 0 0 7-7c0-2-1-3.9-3-5.5s-3.5-4-4-6.5c-.5 2.5-2 4.9-4 6.5C6 11.1 5 13 5 15a7 7 0 0 0 7 7z"/></symbol>
+  <symbol id="i-mail" viewBox="0 0 24 24"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></symbol>
+  <symbol id="i-in" viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></symbol>
+  <symbol id="i-gh" viewBox="0 0 24 24"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.4 5.4 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></symbol>
+</svg>
+
+<header class="top" id="top">
+  <div class="wrap">
+    <a class="mark" href="#main">willvinton<span>.</span>com</a>
     <nav aria-label="Sections">
+      <a href="#curve">The curve</a>
       <a href="#results">Results</a>
-      <a href="#experience">Experience</a>
+      <a href="#building">Building</a>
       <a href="#work">Work</a>
       <a href="/springboard/">Springboard</a>
-      <a href="#contact">Contact</a>
+      <a class="btn primary sm" href="#contact">Say hello <svg class="icon" aria-hidden="true"><use href="#i-arrow-ur"/></svg></a>
     </nav>
-  </header>
+  </div>
+</header>
 
-  <div class="hero" id="top">
-    <div>
-      <div class="me">
-        <img class="portrait" src="headshot.jpg" width="720" height="720" alt="Will Vinton, smiling, in a navy blazer and white shirt">
-        <p class="label">Wilmington, Delaware<br><span class="open">Ecommerce · Product · Technology</span></p>
+<main id="main">
+  <section class="hero" aria-labelledby="name">
+    <span class="glow a" aria-hidden="true"></span><span class="glow b" aria-hidden="true"></span>
+    <div class="wrap rel hero-grid">
+      <div>
+        <p class="pill"><span class="dot pulse" aria-hidden="true"></span><span><b>Currently:</b> replatforming a 26-store footwear retailer to Shopify Plus</span></p>
+        <h1 id="name">Will Vinton</h1>
+        <p class="intro">I build and run online businesses, from a self-funded startup to <strong>$320M a year in digital revenue</strong>. These days I put AI to work inside the systems that run them.</p>
+        <div class="cta">
+          <a class="btn primary" href="#contact">Get in touch <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+          <a class="btn" href="#curve">See the curve <svg class="icon" aria-hidden="true"><use href="#i-down"/></svg></a>
+        </div>
       </div>
-      <h1 style="margin-top:22px">Will Vinton</h1>
-      <p class="role">Ecommerce, digital product and technology leader.</p>
-      <p class="intro">I've spent my career building and running online businesses, from a self-funded startup to $320M a year in digital revenue. I run product, engineering, data and customer experience as one team, own more of the stack at lower cost, and put AI to work in everyday operations.</p>
-      <div class="cta">
-        <a class="btn primary" href="#contact">Get in touch</a>
-        <a class="btn" href="https://www.linkedin.com/in/will-vinton" target="_blank" rel="noopener">LinkedIn</a>
+      <div class="portrait-wrap">
+        <span class="orbit" aria-hidden="true"></span>
+        <img class="portrait" src="headshot.jpg" width="720" height="720" alt="Will Vinton, smiling, in a navy blazer and white shirt">
+        <p class="pill loc"><svg class="icon" aria-hidden="true"><use href="#i-pin"/></svg>Wilmington, Delaware</p>
+        <p class="badge"><strong>$320M</strong><span>a year in digital revenue</span></p>
       </div>
     </div>
+  </section>
 
-    <figure class="chart" style="margin:0">
-      <p class="label">National mattress retailer · annual digital revenue</p>
-      <p class="big">$20M <span style="color:var(--muted);font-weight:500">→</span> <b>$320M</b></p>
-      <p class="cap">Eight years leading the platform, product and engineering behind it.</p>
-      <svg viewBox="0 0 320 150" role="img" aria-label="Line chart: digital revenue grew from about $20M in 2013 to $50M in 2015, $113M in 2019 and $320M in 2021.">
-        <line x1="10" y1="120" x2="300" y2="120" stroke="var(--line)" stroke-width="1"/>
-        <line x1="10" y1="65" x2="300" y2="65" stroke="var(--line)" stroke-width="1" stroke-dasharray="2 4"/>
-        <line x1="10" y1="10" x2="300" y2="10" stroke="var(--line)" stroke-width="1" stroke-dasharray="2 4"/>
-        <polygon points="10,120 10,113.1 82.5,102.8 227.5,81.2 300,10 300,120" fill="var(--accent-soft)"/>
-        <polyline class="line-draw" points="10,113.1 82.5,102.8 227.5,81.2 300,10" fill="none" stroke="var(--accent)" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>
-        <g fill="var(--surface)" stroke="var(--accent)" stroke-width="2">
-          <circle cx="10" cy="113.1" r="3.5"/><circle cx="82.5" cy="102.8" r="3.5"/><circle cx="227.5" cy="81.2" r="3.5"/>
-        </g>
-        <circle cx="300" cy="10" r="5" fill="var(--accent)"/>
-        <g font-family="JetBrains Mono, monospace" font-size="9.5" fill="var(--muted)">
-          <text x="10" y="138" text-anchor="start">2013</text>
-          <text x="82.5" y="138" text-anchor="middle">2015</text>
-          <text x="227.5" y="138" text-anchor="middle">2019</text>
-          <text x="300" y="138" text-anchor="end">2021</text>
-        </g>
-        <g font-family="JetBrains Mono, monospace" font-size="9.5" fill="var(--ink)">
-          <text x="16" y="105">$20M</text>
-          <text x="82.5" y="94" text-anchor="middle">$50M</text>
-          <text x="227.5" y="72" text-anchor="middle">$113M</text>
-          <text x="292" y="13" text-anchor="end">$320M</text>
-        </g>
-      </svg>
-    </figure>
+  <div class="strip" aria-label="Platforms and tools I work with">
+    <div class="marquee">
+      <ul>
+        <li>Shopify Plus</li><li>Adobe Commerce</li><li>Salesforce</li><li>NetSuite</li><li>Klaviyo</li><li>Snowflake</li><li>Next.js</li><li>n8n</li><li class="hi">Claude + MCP</li><li>Figma</li><li>Meilisearch</li><li>GA4</li><li>Sitecore</li><li>Attentive</li>
+      </ul>
+      <ul aria-hidden="true">
+        <li>Shopify Plus</li><li>Adobe Commerce</li><li>Salesforce</li><li>NetSuite</li><li>Klaviyo</li><li>Snowflake</li><li>Next.js</li><li>n8n</li><li class="hi">Claude + MCP</li><li>Figma</li><li>Meilisearch</li><li>GA4</li><li>Sitecore</li><li>Attentive</li>
+      </ul>
+    </div>
   </div>
 
-  <section id="results">
-    <div class="head"><h2>Selected results</h2><p class="label">2009 to today</p></div>
-    <div class="results">
-      <div class="result"><span class="n">$20M → $320M</span><p>Grew a national mattress retailer's annual digital revenue over eight years.</p></div>
-      <div class="result"><span class="n">+20% in 6 months</span><p>Turned around an automotive aftermarket brand's DTC ecommerce, then grew double digits each of the first two years in a flat, tariff-hit market.</p></div>
-      <div class="result"><span class="n">&lt;5 → 50+</span><p>Built a digital organization supporting 10+ websites and 20+ systems, with zero voluntary turnover.</p></div>
-      <div class="result"><span class="n">+50% YoY</span><p>Grew a global IT services firm's digital consulting practice to 140 people and 20+ enterprise clients.</p></div>
-      <div class="result"><span class="n">$0 → $5M+</span><p>Co-founded Olejo with no outside funding and saw it acquired by a national mattress retailer.</p></div>
-      <div class="result"><span class="n">80% faster</span><p>Moved a 2,500-store retailer to a headless React, Next.js and PWA storefront on an edge CDN.</p></div>
-    </div>
-  </section>
-
-  <section id="experience">
-    <div class="head"><h2>Experience</h2><p class="label">Most recent first</p></div>
-
-    <article class="job">
-      <p class="when">Jan 2024 – Present</p>
-      <div>
-        <h3>Automotive aftermarket brand</h3>
-        <p class="title">Director, Digital Experience &amp; Technology</p>
-        <p class="where">Garnet Valley, PA</p>
-        <p class="sum">Recruited by the CEO to rebuild ecommerce after leadership turnover. I lead the product, engineering, data and CX team behind six Magento storefronts (DTC and B2B across the US, EU and UK) on NetSuite, with P&amp;L accountability and ownership of MarTech, vendor and offshore budgets.</p>
-        <ul>
-          <li>Delivered 20% revenue growth within six months and double-digit growth in each of the first two years.</li>
-          <li>Founded centers of excellence for SEO, analytics, CRO, site speed and Kanban delivery; grew the team 50%.</li>
-          <li>Cut recurring software spend by replacing Optimizely, Adobe Live Search, AfterShip and an ERP connector with lower-cost or in-house builds (n8n, Meilisearch, Attentive).</li>
-          <li>Ran a two-day B2B workshop with the CEO and sales leadership to open the wholesale portal beyond ~85 distributors to independent shops.</li>
-          <li>Directed cross-border compliance for ~5,500 SKUs across Canada and 27 EU countries, including DDP duties at checkout.</li>
-          <li>Built an AI-assisted session-replay QA pipeline that surfaced and prioritized ~50 storefront defects.</li>
-        </ul>
-      </div>
-    </article>
-
-    <article class="job">
-      <p class="when">2026 – Present</p>
-      <div>
-        <h3>Commerce Builds, Inc.</h3>
-        <p class="title">Senior Digital Consultant &amp; Project Lead</p>
-        <p class="where">Wilmington, DE · Shopify Plus consultancy</p>
-        <ul>
-          <li>Leading a WooCommerce to Shopify Plus replatform for a 26-store, century-old footwear retailer (~1,520 products, 111 brands), including SEO equity recovery.</li>
-          <li>Built a 22-epic, 12-month growth roadmap for a premium mattress brand.</li>
-          <li>Launched a 14-brand mattress retailer's Shopify catalog through scripted data pipelines and trained staff to own it.</li>
-        </ul>
-      </div>
-    </article>
-
-    <article class="job">
-      <p class="when">Jul 2021 – Jan 2024</p>
-      <div>
-        <h3>Global IT services firm</h3>
-        <p class="title">Head of Digital Consulting, Senior Director Digital</p>
-        <p class="where">Cranbury, NJ</p>
-        <p class="sum">Led a global digital consulting practice of 140 people serving B2B and B2C retail and CPG clients.</p>
-        <ul>
-          <li>Grew practice revenue 50% year over year with a new go-to-market, service offerings and sales collateral.</li>
-          <li>Created Digital Team-as-a-Service and transformation offerings bringing Agile, product management and design sprints to clients.</li>
-          <li>Spoke for the practice at industry events and led Design Thinking workshops for client leadership.</li>
-        </ul>
-      </div>
-    </article>
-
-    <article class="job">
-      <p class="when">Jun 2013 – Jul 2021</p>
-      <div>
-        <h3>National mattress retailer</h3>
-        <p class="where">Houston, TX</p>
-        <p class="title" style="margin-top:10px">Director of Digital Technology · 2019–2021</p>
-        <ul>
-          <li>Owned digital product engineering and the omnichannel and CRM roadmaps as revenue grew from $113M to $320M.</li>
-          <li>Moved the digital org from waterfall to SAFe Agile across 50+ internal and partner people.</li>
-          <li>Re-platformed onto a headless stack, improving site performance 80%; led Salesforce CRM across 2,500 stores.</li>
-        </ul>
-        <div class="sub">
-          <p class="title">Director of Digital · 2015–2019</p>
-          <ul>
-            <li>Led a 30+ person team as revenue grew from $50M to $113M; launched BOPIS and delivery scheduling.</li>
-          </ul>
+  <section class="curve" id="curve" aria-labelledby="curve-h">
+    <span class="glow" aria-hidden="true"></span>
+    <div class="wrap rel">
+      <div class="curve-head">
+        <div>
+          <p class="label">01 · The curve</p>
+          <h2 class="h2" id="curve-h">Seventeen years,<br>one line.</h2>
         </div>
-        <div class="sub">
-          <p class="title">eCommerce Development Manager · 2013–2015</p>
-          <ul>
-            <li>Stabilized a failing legacy platform, then led the Sitecore migration that took revenue from under $20M to $50M.</li>
-          </ul>
+        <p>Founder, operator at scale, consultant, brand turnaround. Each point is a step I took and what it moved.</p>
+      </div>
+
+      <div class="chart-box">
+        <svg viewBox="0 0 1056 460" role="img" aria-labelledby="curve-desc">
+          <desc id="curve-desc">Career line from 2009 to 2026. Co-founded Olejo in 2009 and grew it to over $5M; it was acquired in 2013 by a national mattress retailer, where digital revenue rose from about $20M to $320M a year by 2021. Then Head of Digital Consulting at a global IT services firm, a brand turnaround from 2024, and Commerce Builds from 2026.</desc>
+          <defs>
+            <linearGradient id="area-g" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="var(--accent)" stop-opacity=".35"/><stop offset="1" stop-color="var(--accent)" stop-opacity="0"/></linearGradient>
+          </defs>
+          <g stroke="var(--line)" stroke-width="1">
+            <line x1="24" y1="70" x2="1032" y2="70" stroke-dasharray="2 6"/><line x1="24" y1="148" x2="1032" y2="148" stroke-dasharray="2 6"/>
+            <line x1="24" y1="225" x2="1032" y2="225" stroke-dasharray="2 6"/><line x1="24" y1="303" x2="1032" y2="303" stroke-dasharray="2 6"/>
+            <line x1="24" y1="380" x2="1032" y2="380"/>
+          </g>
+          <polygon class="area" points="24,380 251,361 364,332 590,271 732,70 732,380" fill="url(#area-g)"/>
+          <polyline class="line-path" pathLength="1" points="24,380 251,361 364,332 590,271 732,70" fill="none" stroke="var(--accent)" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+          <g fill="var(--bg)" stroke-width="2.5">
+            <circle class="pt" style="--d:.1" cx="24" cy="380" r="6" stroke="var(--accent)"/>
+            <circle class="pt" style="--d:.5" cx="251" cy="361" r="6" stroke="var(--accent)"/>
+            <circle class="pt" style="--d:.8" cx="364" cy="332" r="6" stroke="var(--accent)"/>
+            <circle class="pt" style="--d:1.3" cx="590" cy="271" r="6" stroke="var(--accent)"/>
+            <circle class="pt" style="--d:2" cx="794" cy="380" r="6" stroke="var(--next)"/>
+            <circle class="pt" style="--d:2.3" cx="890" cy="380" r="6" stroke="var(--live)"/>
+            <circle class="pt" style="--d:2.6" cx="992" cy="380" r="6" stroke="var(--live)"/>
+          </g>
+          <circle class="pt" style="--d:1.8" cx="732" cy="70" r="16" fill="var(--accent)" opacity=".18"/>
+          <circle class="pt" style="--d:1.8" cx="732" cy="70" r="7" fill="var(--accent)"/>
+          <g class="yr" text-anchor="middle">
+            <text x="24" y="404" text-anchor="start">2009</text><text x="251" y="404">2013</text><text x="478" y="404">2017</text><text x="705" y="404">2021</text><text x="932" y="404">2025</text>
+          </g>
+          <g class="phases">
+            <rect x="26" y="420" width="223" height="5" rx="2.5" fill="var(--muted)" opacity=".6"/>
+            <rect x="253" y="420" width="477" height="5" rx="2.5" fill="var(--accent)"/>
+            <rect x="734" y="420" width="138" height="5" rx="2.5" fill="var(--next)"/>
+            <rect x="875" y="420" width="155" height="5" rx="2.5" fill="var(--live)"/>
+            <text class="phase" x="26" y="446">FOUNDER · OLEJO</text>
+            <text class="phase" x="253" y="446">OPERATOR AT SCALE · NATIONAL MATTRESS RETAILER</text>
+            <text class="phase" x="734" y="446">CONSULTING</text>
+            <text class="phase" x="875" y="446">BRAND TURNAROUND</text>
+          </g>
+        </svg>
+        <ol class="ms">
+          <li style="--x:36;--y:308;--d:.2"><em>2009</em><b>Co-founded Olejo</b><span>Self-funded to $5M+</span></li>
+          <li style="--x:196;--y:276;--d:.6"><em>2013</em><b>Acquired</b><span>Joined to run digital</span></li>
+          <li style="--x:300;--y:196;--d:.9"><em>2013–2015</em><b>Sitecore migration</b><span>$20M → $50M</span></li>
+          <li style="--x:470;--y:150;--d:1.4"><em>2015–2019</em><b>Director of Digital</b><span>$50M → $113M</span></li>
+          <li style="--x:520;--y:46;--d:1.9"><em>2019–2021</em><b>Headless replatform</b><span>$320M a year</span></li>
+          <li class="c-next" style="--x:722;--y:296;--d:2.1"><em>2021–2024</em><b>Head of Digital Consulting</b><span>Practice +50% YoY</span></li>
+          <li class="c-live" style="--x:820;--y:214;--d:2.4"><em>2024</em><b>Brand turnaround</b><span>+20% in 6 months</span></li>
+          <li class="c-live" style="--x:846;--y:132;--d:2.7"><em>2026</em><b>Commerce Builds</b><span>Shopify Plus replatforms</span></li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <section class="results" id="results" aria-labelledby="results-h">
+    <div class="wrap">
+      <p class="label">02 · Results</p>
+      <h2 class="h2" id="results-h">Numbers I can stand behind.</h2>
+      <div class="bento">
+        <article class="tile big">
+          <p class="label" style="color:var(--muted)">National mattress retailer · 2013–2021</p>
+          <svg class="viz" viewBox="0 0 460 230" role="img" aria-label="Digital revenue grew from about $20M in 2013 to $50M in 2015, $113M in 2019 and $320M in 2021.">
+            <defs><linearGradient id="big-g" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="var(--accent)" stop-opacity=".4"/><stop offset="1" stop-color="var(--accent)" stop-opacity="0"/></linearGradient></defs>
+            <line x1="0" y1="210" x2="460" y2="210" stroke="var(--line)"/>
+            <polygon points="10,200 120,184 340,150 450,14 450,210 10,210" fill="url(#big-g)"/>
+            <polyline points="10,200 120,184 340,150 450,14" fill="none" stroke="var(--accent)" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+            <g fill="var(--bg)" stroke="var(--accent)" stroke-width="2.5"><circle cx="10" cy="200" r="5"/><circle cx="120" cy="184" r="5"/><circle cx="340" cy="150" r="5"/></g>
+            <circle cx="450" cy="14" r="7" fill="var(--accent)"/>
+          </svg>
+          <p class="n">$20M → $320M</p>
+          <p>Annual digital revenue over eight years: a Sitecore migration, BOPIS, Salesforce CRM across 2,500 stores and a headless storefront.</p>
+        </article>
+        <article class="tile">
+          <div class="viz bars" aria-hidden="true"><i style="height:22px"></i><i style="height:26px"></i><i style="height:24px"></i><i style="height:56px"></i></div>
+          <p class="n">+20% in 6 months</p>
+          <p>Automotive aftermarket DTC turnaround, then double digits each year in a flat market.</p>
+        </article>
+        <article class="tile">
+          <div class="viz dots" aria-hidden="true"></div>
+          <p class="n">&lt;5 → 50+</p>
+          <p>Digital organization grown across 10+ sites and 20+ systems, zero voluntary turnover.</p>
+        </article>
+        <article class="tile">
+          <div class="viz bars" aria-hidden="true"><i style="height:18px"></i><i style="height:27px"></i><i style="height:40px"></i><i style="height:56px"></i></div>
+          <p class="n">+50% YoY</p>
+          <p>Global consulting practice grown to 140 people and 20+ enterprise clients.</p>
+        </article>
+        <article class="tile">
+          <svg class="viz" viewBox="0 0 160 56" height="56" aria-hidden="true"><path d="M4 50 C 50 48, 80 40, 110 26 S 150 6, 156 4" fill="none" stroke="var(--accent)" stroke-width="2.5" stroke-linecap="round"/><circle cx="156" cy="4" r="4" fill="var(--accent)"/></svg>
+          <p class="n">$0 → $5M+</p>
+          <p>Olejo, bootstrapped with no outside funding and acquired.</p>
+        </article>
+        <article class="tile wide">
+          <div>
+            <p class="n">80% faster</p>
+            <p>Headless React, Next.js and PWA storefront on an edge CDN.</p>
+          </div>
+          <div class="speed" aria-hidden="true">
+            <div><i style="width:78%"></i>Before</div>
+            <div><i style="width:16%"></i>After · 80% faster</div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="what" aria-labelledby="what-h">
+    <span class="glow" aria-hidden="true"></span>
+    <div class="wrap rel what-grid">
+      <div>
+        <p class="label">03 · What I do</p>
+        <h2 class="h2" id="what-h">One team, the whole stack.</h2>
+      </div>
+      <div class="pillars">
+        <div class="pillar"><span class="ibox"><svg class="icon" aria-hidden="true"><use href="#i-layers"/></svg></span><h3>Product &amp; engineering</h3><p>Storefronts, platforms and integrations, owned in-house at lower cost.</p></div>
+        <div class="pillar"><span class="ibox"><svg class="icon" aria-hidden="true"><use href="#i-db"/></svg></span><h3>Data &amp; customer experience</h3><p>Analytics, CRO, search and site speed run as one practice, not five vendors.</p></div>
+        <div class="pillar"><span class="ibox"><svg class="icon" aria-hidden="true"><use href="#i-spark"/></svg></span><h3>AI in everyday operations</h3><p>Claude and MCP-connected agents for QA, ticketing, catalog and campaigns.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="building" id="building" aria-labelledby="building-h">
+    <div class="wrap">
+      <p class="label">04 · Now building</p>
+      <h2 class="h2" id="building-h">Things I'm making<br>right now.</h2>
+      <div class="build-grid">
+        <a class="feature" href="/springboard/">
+          <svg class="arc" viewBox="0 0 300 240" aria-hidden="true">
+            <path d="M10 220 C 90 220, 120 40, 290 20" stroke="var(--accent)" stroke-width="2" stroke-dasharray="1 9" stroke-linecap="round" fill="none"/>
+            <path d="M10 220 H 120" stroke="var(--ink)" stroke-width="3" stroke-linecap="round"/>
+            <circle cx="290" cy="20" r="9" fill="var(--accent)"/><circle cx="290" cy="20" r="22" stroke="var(--accent)" stroke-opacity=".35" fill="none"/>
+            <circle cx="196" cy="70" r="4" fill="var(--accent)" fill-opacity=".6"/><circle cx="150" cy="128" r="3" fill="var(--accent)" fill-opacity=".4"/>
+          </svg>
+          <span class="kind"><span class="ibox"><svg class="icon" aria-hidden="true"><use href="#i-rocket"/></svg></span>Consulting framework · Blog</span>
+          <h3>Springboard</h3>
+          <p>A foundation that lets a small ecommerce team run like a big one: a Figma design system, Claude, and Shopify and Klaviyo connected through MCP, with business processes automated end to end. Includes a scoring system and an education hub.</p>
+          <span class="tags"><span>Figma</span><span>MCP</span><span>Klaviyo</span><span>AI ops</span></span>
+          <span class="go">Read the blog <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></span>
+        </a>
+        <div class="side">
+          <article class="mini"><span class="ibox"><svg class="icon" aria-hidden="true"><use href="#i-compass"/></svg></span><div><b>Brecks Brothers Digital Consulting</b><p>Ecommerce strategy, from a product or idea to a full Shopify Plus site.</p></div><span class="chip now">Now</span></article>
+          <article class="mini"><span class="ibox"><svg class="icon" aria-hidden="true"><use href="#i-users"/></svg></span><div><b>Commerce Builds engagements</b><p>A footwear replatform going live November 2026, plus growth and catalog work.</p></div><span class="chip now">Now</span></article>
+          <article class="mini"><span class="ibox"><svg class="icon" aria-hidden="true"><use href="#i-bag"/></svg></span><div><b>Hobby collectibles store</b><p>Shopify dropship, from sports cards to Pokémon and coins.</p></div><span class="chip now">Now</span></article>
+          <article class="mini"><span class="ibox"><svg class="icon" aria-hidden="true"><use href="#i-drop"/></svg></span><div><b>Pool care store</b><p>Focused dropship for pool skimming gear.</p></div><span class="chip next">Next</span></article>
         </div>
       </div>
-    </article>
-
-    <article class="job">
-      <p class="when">Jan 2009 – Jun 2013</p>
-      <div>
-        <h3>Olejo Inc.</h3>
-        <p class="title">Co-Founder, Head of Product &amp; Technology</p>
-        <p class="where">Boston, MA</p>
-        <ul>
-          <li>Built a homegrown ecommerce platform on minimal capital and grew the business to $5M+ without outside funding.</li>
-          <li>Led product, technology and integrations through the acquisition by a national mattress retailer.</li>
-        </ul>
-      </div>
-    </article>
+    </div>
   </section>
 
-  <section id="work">
-    <div class="head"><h2>Projects &amp; portfolio</h2><p class="label">What I'm building</p></div>
-
-    <div class="group">
-      <div class="ghead"><span class="chip now">Now</span><h3>Running today</h3></div>
-      <div class="cards">
-        <article class="card">
-          <span class="kind">Advisory</span>
-          <h4>Brecks Brothers Digital Consulting</h4>
-          <p>Ecommerce and digital strategy for brands taking a product or idea to a full Shopify Plus site, with the operations to run it.</p>
-          <div class="tags"><span>Shopify Plus</span><span>Magento</span><span>Salesforce</span></div>
-        </article>
-        <article class="card">
-          <span class="kind">Client work</span>
-          <h4>Commerce Builds engagements</h4>
-          <p>A footwear replatform going live in November 2026, plus growth and catalog work for two mattress retailers.</p>
-          <div class="tags"><span>Replatform</span><span>SEO</span><span>Python</span></div>
-        </article>
-        <article class="card">
-          <span class="kind">Ecommerce · Own brand</span>
-          <h4>Hobby collectibles store</h4>
-          <p>A Shopify dropship store growing from sports cards and memorabilia into a broader hobby shop: Pokémon, coins and more.</p>
-          <div class="tags"><span>Shopify</span><span>Dropship</span></div>
-        </article>
+  <section class="work" id="work" aria-labelledby="work-h">
+    <div class="wrap work-grid">
+      <div class="work-aside">
+        <p class="label">05 · Work</p>
+        <h2 class="h2" id="work-h" style="margin-top:0">Where I've worked.</h2>
+        <p>The short version. Open any row for the details.</p>
+        <a class="btn" href="https://www.linkedin.com/in/will-vinton" target="_blank" rel="noopener"><svg class="icon" aria-hidden="true"><use href="#i-in"/></svg>Full history on LinkedIn</a>
+        <div class="edu"><p class="label" style="color:var(--muted)">Education</p><strong>Northeastern University</strong><span class="muted" style="font-size:.92rem">B.S. Computer Science · Boston, MA</span></div>
       </div>
-    </div>
-
-    <div class="group">
-      <div class="ghead"><span class="chip next">Next</span><h3>In development</h3></div>
-      <div class="cards">
-        <article class="card">
-          <span class="kind">Consulting framework · Blog</span>
-          <h4><a href="/springboard/">Springboard</a></h4>
-          <p>A foundation that lets a small ecommerce team run like a big one: a Figma design system, Claude, and Shopify and Klaviyo connected through MCP, with business processes automated end to end. Includes a scoring system and an education hub. <a href="/springboard/blog/">Read the blog</a>.</p>
-          <div class="tags"><span>Figma</span><span>MCP</span><span>Klaviyo</span><span>AI ops</span></div>
-        </article>
-        <article class="card">
-          <span class="kind">Ecommerce · Own brand</span>
-          <h4>Pool care store</h4>
-          <p>A focused dropship shop for pool skimming gear, built for the parent who keeps the family pool clean.</p>
-          <div class="tags"><span>Shopify</span><span>Dropship</span></div>
-        </article>
-      </div>
-    </div>
-
-    <div class="group">
-      <div class="ghead"><span class="chip done">Shipped</span><h3>Career highlights</h3></div>
-      <div class="cards">
-        <article class="card">
-          <span class="kind">Retail · 2013–2021</span>
-          <h4>National retailer digital</h4>
-          <p>Sitecore migration, BOPIS, Salesforce CRM across 2,500 stores, and a headless storefront 80% faster than before.</p>
-          <div class="tags"><span>Headless</span><span>Salesforce</span></div>
-        </article>
-        <article class="card">
-          <span class="kind">Automotive · 2024–</span>
-          <h4>Automotive storefronts</h4>
-          <p>Six Magento sites across the US, EU and UK, with cross-border duties, a B2B portal expansion and an in-house search stack.</p>
-          <div class="tags"><span>Magento</span><span>NetSuite</span><span>Meilisearch</span></div>
-        </article>
-        <article class="card">
-          <span class="kind">Startup · 2009–2013</span>
-          <h4>Olejo</h4>
-          <p>A bootstrapped ecommerce company on a platform I built, grown to $5M+ and acquired.</p>
-          <div class="tags"><span>Founder</span><span>Exit</span></div>
-        </article>
+      <div class="jobs">
+        <details class="job" open>
+          <summary><span class="when">2024 —</span><div><h3>Automotive aftermarket brand</h3><p class="role">Director, Digital Experience &amp; Technology</p></div><span class="tog" aria-hidden="true"><svg class="icon"><use href="#i-down"/></svg></span></summary>
+          <div class="body">
+            <p>Recruited by the CEO to rebuild ecommerce after leadership turnover. I lead the product, engineering, data and CX team behind six Magento storefronts (DTC and B2B across the US, EU and UK) on NetSuite, with P&amp;L accountability.</p>
+            <ul>
+              <li>Delivered 20% revenue growth within six months and double-digit growth in each of the first two years.</li>
+              <li>Founded centers of excellence for SEO, analytics, CRO, site speed and Kanban delivery; grew the team 50%.</li>
+              <li>Replaced Optimizely, Adobe Live Search, AfterShip and an ERP connector with lower-cost or in-house builds (n8n, Meilisearch, Attentive).</li>
+              <li>Opened the wholesale portal beyond ~85 distributors to independent shops, after a two-day workshop with the CEO and sales leadership.</li>
+              <li>Directed cross-border compliance for ~5,500 SKUs across Canada and 27 EU countries, including DDP duties at checkout.</li>
+              <li>Built an AI-assisted session-replay QA pipeline that surfaced and prioritized ~50 storefront defects.</li>
+            </ul>
+          </div>
+        </details>
+        <details class="job">
+          <summary><span class="when">2026 —</span><div><h3>Commerce Builds, Inc.</h3><p class="role">Senior Digital Consultant &amp; Project Lead</p></div><span class="tog" aria-hidden="true"><svg class="icon"><use href="#i-down"/></svg></span></summary>
+          <div class="body">
+            <p>Shopify Plus consultancy, Wilmington, DE.</p>
+            <ul>
+              <li>Leading a WooCommerce to Shopify Plus replatform for a 26-store, century-old footwear retailer (~1,520 products, 111 brands), including SEO equity recovery.</li>
+              <li>Built a 22-epic, 12-month growth roadmap for a premium mattress brand.</li>
+              <li>Launched a 14-brand mattress retailer's Shopify catalog through scripted data pipelines and trained staff to own it.</li>
+            </ul>
+          </div>
+        </details>
+        <details class="job">
+          <summary><span class="when">2021 – 24</span><div><h3>Global IT services firm</h3><p class="role">Head of Digital Consulting, Senior Director Digital</p></div><span class="tog" aria-hidden="true"><svg class="icon"><use href="#i-down"/></svg></span></summary>
+          <div class="body">
+            <p>Led a global digital consulting practice of 140 people serving B2B and B2C retail and CPG clients.</p>
+            <ul>
+              <li>Grew practice revenue 50% year over year with a new go-to-market, service offerings and sales collateral.</li>
+              <li>Created Digital Team-as-a-Service and transformation offerings bringing Agile, product management and design sprints to clients.</li>
+              <li>Spoke for the practice at industry events and led Design Thinking workshops for client leadership.</li>
+            </ul>
+          </div>
+        </details>
+        <details class="job">
+          <summary><span class="when">2013 – 21</span><div><h3>National mattress retailer</h3><p class="role">Director of Digital Technology</p></div><span class="tog" aria-hidden="true"><svg class="icon"><use href="#i-down"/></svg></span></summary>
+          <div class="body">
+            <ul>
+              <li>Owned digital product engineering and the omnichannel and CRM roadmaps as revenue grew from $113M to $320M (2019–2021).</li>
+              <li>Moved the digital org from waterfall to SAFe Agile across 50+ internal and partner people.</li>
+              <li>Re-platformed onto a headless stack, improving site performance 80%; led Salesforce CRM across 2,500 stores.</li>
+            </ul>
+            <p class="sub">Director of Digital · 2015–2019</p>
+            <ul><li>Led a 30+ person team as revenue grew from $50M to $113M; launched BOPIS and delivery scheduling.</li></ul>
+            <p class="sub">eCommerce Development Manager · 2013–2015</p>
+            <ul><li>Stabilized a failing legacy platform, then led the Sitecore migration that took revenue from under $20M to $50M.</li></ul>
+          </div>
+        </details>
+        <details class="job">
+          <summary><span class="when">2009 – 13</span><div><h3>Olejo Inc.</h3><p class="role">Co-Founder, Head of Product &amp; Technology</p></div><span class="tog" aria-hidden="true"><svg class="icon"><use href="#i-down"/></svg></span></summary>
+          <div class="body">
+            <ul>
+              <li>Built a homegrown ecommerce platform on minimal capital and grew the business to $5M+ without outside funding.</li>
+              <li>Led product, technology and integrations through the acquisition by a national mattress retailer.</li>
+            </ul>
+          </div>
+        </details>
       </div>
     </div>
   </section>
 
-  <section id="stack">
-    <div class="head"><h2>Platforms &amp; tools</h2></div>
-    <div class="stack">
-      <div><h3>Commerce</h3><p>Adobe Commerce (Magento), Shopify Plus, Salesforce Commerce and CRM, Sitecore, WooCommerce</p></div>
-      <div><h3>ERP, payments &amp; ops</h3><p>NetSuite, n8n, Avalara, ShipperHQ, Braintree, PayPal, Klarna</p></div>
-      <div><h3>Data &amp; analytics</h3><p>Snowflake, GA4, Tag Manager, Matomo, LogRocket, Search Console, Screaming Frog</p></div>
-      <div><h3>Experience &amp; marketing</h3><p>Optimizely, Klaviyo, Attentive, Meilisearch, Figma</p></div>
-      <div><h3>Engineering &amp; delivery</h3><p>React, Next.js, PWA, edge CDN, Python, Jira, Linear, SAFe, Kanban</p></div>
-      <div><h3>AI</h3><p>Claude Code and MCP-connected agents, AI-assisted QA and ticketing, AI prototyping and design</p></div>
-    </div>
-    <div class="edu">
-      <p class="label">Education</p>
-      <strong>Northeastern University</strong>
-      <span style="color:var(--muted)">B.S. Computer Science · Boston, MA</span>
-    </div>
-  </section>
-
-  <section class="contact" id="contact">
-    <p class="label">Contact</p>
-    <h2 style="margin-top:14px">Have a product to launch or a team to build?</h2>
-    <p class="lede">I work with founders and leadership teams on ecommerce strategy, replatforms and digital operations. Email is the fastest way to reach me.</p>
-    <div class="rows">
-      <div class="row"><span class="v" id="email">wvinton.ecom@gmail.com</span><button class="copy" id="copyEmail" type="button">Copy email</button></div>
-      <div class="row"><span class="v">linkedin.com/in/will-vinton</span><a class="copy" href="https://www.linkedin.com/in/will-vinton" target="_blank" rel="noopener" style="text-decoration:none">Open</a></div>
-      <div class="row"><span class="v">github.com/whv3rd</span><a class="copy" href="https://github.com/whv3rd" target="_blank" rel="noopener" style="text-decoration:none">Open</a></div>
+  <section class="contact" id="contact" aria-labelledby="contact-h">
+    <span class="glow" aria-hidden="true"></span>
+    <div class="wrap rel">
+      <p class="label">06 · Contact</p>
+      <h2 id="contact-h">Have a product to launch or a team to build?</h2>
+      <p class="lede">I work with founders and leadership teams on ecommerce strategy, replatforms and digital operations. Email is the fastest way to reach me.</p>
+      <div class="email">
+        <a href="mailto:wvinton.ecom@gmail.com"><svg class="icon" aria-hidden="true"><use href="#i-mail"/></svg><span id="email">wvinton.ecom@gmail.com</span></a>
+        <button id="copyEmail" type="button">Copy</button>
+      </div>
+      <div class="socials">
+        <a class="btn" href="https://www.linkedin.com/in/will-vinton" target="_blank" rel="noopener"><svg class="icon" aria-hidden="true"><use href="#i-in"/></svg>LinkedIn</a>
+        <a class="btn" href="https://github.com/whv3rd" target="_blank" rel="noopener"><svg class="icon" aria-hidden="true"><use href="#i-gh"/></svg>GitHub</a>
+      </div>
     </div>
   </section>
+</main>
 
-  <footer><span>© 2026 Will Vinton</span><span>Wilmington, Delaware</span></footer>
-</div>
+<footer><div class="wrap"><span>© 2026 Will Vinton</span><span>Wilmington, Delaware</span></div></footer>
 
 <script>
-document.getElementById('copyEmail').addEventListener('click', function(){
-  var b=this, t=document.getElementById('email').textContent;
-  function done(){b.textContent='Copied';setTimeout(function(){b.textContent='Copy email'},1600)}
-  function fallback(){var r=document.createRange();r.selectNodeContents(document.getElementById('email'));var s=getSelection();s.removeAllRanges();s.addRange(r);b.textContent='Selected'}
-  try{navigator.clipboard.writeText(t).then(done,fallback)}catch(e){fallback()}
-});
+(function(){
+  var top=document.querySelector('.top');
+  function onScroll(){top.classList.toggle('scrolled',window.scrollY>8)}
+  addEventListener('scroll',onScroll,{passive:true});onScroll();
+
+  var curve=document.getElementById('curve');
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){curve.classList.add('in');io.disconnect()}})},{threshold:.15});
+    io.observe(curve);
+  } else curve.classList.add('in');
+
+  var b=document.getElementById('copyEmail');
+  b.addEventListener('click',function(){
+    var t=document.getElementById('email').textContent;
+    function done(){b.textContent='Copied';setTimeout(function(){b.textContent='Copy'},1600)}
+    function fallback(){var r=document.createRange();r.selectNodeContents(document.getElementById('email'));var s=getSelection();s.removeAllRanges();s.addRange(r);b.textContent='Selected'}
+    try{navigator.clipboard.writeText(t).then(done,fallback)}catch(e){fallback()}
+  });
+})();
 </script>
 
 </body>
