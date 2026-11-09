@@ -1,7 +1,7 @@
-// Springboard is written for the domain root ("/score", "/blog/..."), but here it is
-// served from /springboard/. Astro's `base` only prefixes the assets it bundles, so
+// Springsboard is written for the domain root ("/score", "/blog/..."), but here it is
+// served from /springsboard/. Astro's `base` only prefixes the assets it bundles, so
 // this rewrites every remaining root-relative href/src/action in the built output.
-// Usage: node prefix-base.mjs <dist-dir> <base>   e.g. node prefix-base.mjs dist /springboard
+// Usage: node prefix-base.mjs <dist-dir> <base>   e.g. node prefix-base.mjs dist /springsboard
 import { readdir, readFile, writeFile } from 'node:fs/promises';
 import { join } from 'node:path';
 
