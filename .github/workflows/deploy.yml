@@ -64,8 +64,10 @@ jobs:
       - name: Build Springboard
         working-directory: springboard
         env:
-          PUBLIC_KLAVIYO_SITE_KEY: ${{ vars.PUBLIC_KLAVIYO_SITE_KEY }}
-          PUBLIC_KLAVIYO_LIST_ID: ${{ vars.PUBLIC_KLAVIYO_LIST_ID }}
+          # Klaviyo account "Springspot AI": public site key and the Email List the forms
+          # subscribe to. Both are browser-safe. Repo variables override them.
+          PUBLIC_KLAVIYO_SITE_KEY: ${{ vars.PUBLIC_KLAVIYO_SITE_KEY || 'TRKcd8' }}
+          PUBLIC_KLAVIYO_LIST_ID: ${{ vars.PUBLIC_KLAVIYO_LIST_ID || 'Y3mKEK' }}
         run: |
           npm ci
           npx astro build --site https://www.willvinton.com --base "$SPRINGBOARD_BASE"
