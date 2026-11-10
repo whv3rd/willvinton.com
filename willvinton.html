@@ -171,16 +171,35 @@ span.smark{display:inline-grid;place-items:center;border-radius:5px;background:v
 .speed div:last-child{color:var(--accent)}
 
 /* what I do */
-.what{position:relative;overflow:hidden;padding-block:clamp(72px,9vw,110px)}
+/* what I do: its own tinted, dotted band so it doesn't run into "Now building" below */
+.what{position:relative;overflow:hidden;padding-block:clamp(72px,9vw,110px);background:color-mix(in srgb,var(--accent) 4%,var(--bg));border-block:1px solid color-mix(in srgb,var(--accent) 22%,var(--line))}
+.what::before{content:"";position:absolute;inset:0;pointer-events:none;background-image:radial-gradient(color-mix(in srgb,var(--accent) 30%,transparent) 1px,transparent 1.6px);background-size:22px 22px;
+  -webkit-mask-image:radial-gradient(ellipse 75% 95% at 80% 25%,#000,transparent 78%);mask-image:radial-gradient(ellipse 75% 95% at 80% 25%,#000,transparent 78%)}
 .what .glow{--a:.14;width:800px;height:600px;right:-260px;top:-140px}
-.what-grid{display:grid;grid-template-columns:minmax(0,19rem) 1fr;gap:clamp(40px,7vw,96px);align-items:start}
+.what-grid{display:grid;grid-template-columns:minmax(0,19rem) minmax(0,1fr);gap:clamp(40px,7vw,96px);align-items:start}
 .what-grid .h2{font-size:clamp(2rem,4.2vw,3.2rem)}
-.pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(24px,3vw,40px)}
-.pillar{min-width:0}
+.what-intro{color:var(--muted);margin-top:14px;max-width:22rem}
+/* the pillars: a swipeable row, a peek of the next card says there's more */
+.pl-scroll{overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;overscroll-behavior-x:contain;border-radius:20px}
+.pl-scroll::-webkit-scrollbar{display:none}
+.pl-scroll.more{-webkit-mask-image:linear-gradient(90deg,#000 calc(100% - 72px),transparent);mask-image:linear-gradient(90deg,#000 calc(100% - 72px),transparent)}
+.pl-scroll:focus-visible{outline:2px solid var(--accent);outline-offset:4px}
+.pillars{list-style:none;margin:0;padding:0;display:grid;grid-auto-flow:column;grid-auto-columns:calc((100% - 32px) / 2.4);gap:16px}
+.pillar{min-width:0;scroll-snap-align:start;padding:26px;border-radius:20px;border:1px solid var(--line);background:color-mix(in srgb,var(--surface) 88%,transparent);transition:border-color .25s}
+.pillar:hover{border-color:color-mix(in srgb,var(--accent) 45%,var(--line))}
+.pl-ctrl{display:none;align-items:center;gap:10px;margin-top:28px}
+.js .pl-ctrl{display:flex}
+.pl-btn{display:inline-grid;place-items:center;width:42px;height:42px;border-radius:50%;border:1px solid var(--line);background:var(--surface);color:var(--ink);cursor:pointer;transition:border-color .2s,opacity .2s}
+.pl-btn:hover:not(:disabled){border-color:var(--accent)}
+.pl-btn:disabled{opacity:.35;cursor:default}
+.pl-btn .icon{width:18px;height:18px}
+.pl-btn.prev .icon{transform:rotate(180deg)}
+.pl-track{position:relative;flex:1;max-width:120px;height:3px;border-radius:3px;background:var(--line);margin-left:8px;overflow:hidden}
+.pl-track span{position:absolute;inset:0 auto 0 0;border-radius:3px;background:var(--accent)}
 .ibox{display:inline-grid;place-items:center;width:48px;height:48px;border-radius:14px;background:var(--accent-soft);border:1px solid color-mix(in srgb,var(--accent) 35%,transparent);color:var(--accent)}
 .ibox .icon{width:22px;height:22px}
 .pillar h3{font:700 1.35rem/1.15 var(--display);letter-spacing:-.01em;margin:18px 0 10px}
-.pillar p{color:var(--muted);font-size:.98rem}
+.pillar p{color:var(--muted);font-size:.95rem}
 
 /* now building */
 .building{padding-block:clamp(80px,10vw,140px)}
@@ -348,7 +367,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;
   .ms li.c-next::before{background:var(--next)} .ms li.c-live::before{background:var(--live)}
   .ms li em{display:block;margin-bottom:4px}
   .chart-box svg .phases{display:none}
-  .pillars{grid-template-columns:1fr}
+  .pillars{grid-auto-columns:calc((100% - 16px) / 1.6)}
   .job summary{grid-template-columns:1fr auto;gap:4px 16px}
   .job .when{grid-column:1}
   .job summary > div{grid-column:1}
@@ -362,6 +381,8 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;
   .top .sections .btn{white-space:nowrap;padding:9px 12px}
   .top .sections .btn .icon{display:none}
   .bento{grid-template-columns:1fr}
+  .pillars{grid-auto-columns:84%}
+  .pillar{padding:22px}
   .tile.wide{flex-direction:column;align-items:stretch;gap:16px}
   .feature .arc{opacity:.35}
   .badge{right:-6px}
@@ -380,6 +401,8 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;
   <symbol id="i-rocket" viewBox="0 0 24 24"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/><path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"/><path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"/></symbol>
   <symbol id="i-compass" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="m16.24 7.76-2.12 6.36-6.36 2.12 2.12-6.36 6.36-2.12z"/></symbol>
   <symbol id="i-users" viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></symbol>
+  <symbol id="i-trend" viewBox="0 0 24 24"><path d="M22 7 13.5 15.5 8.5 10.5 2 17"/><path d="M16 7h6v6"/></symbol>
+  <symbol id="i-gauge" viewBox="0 0 24 24"><path d="m12 14 4-4"/><path d="M3.34 19a10 10 0 1 1 17.32 0"/></symbol>
   <symbol id="i-bag" viewBox="0 0 24 24"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></symbol>
   <symbol id="i-drop" viewBox="0 0 24 24"><path d="M12 22a7 7 0 0 0 7-7c0-2-1-3.9-3-5.5s-3.5-4-4-6.5c-.5 2.5-2 4.9-4 6.5C6 11.1 5 13 5 15a7 7 0 0 0 7 7z"/></symbol>
   <symbol id="i-mail" viewBox="0 0 24 24"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></symbol>
@@ -558,11 +581,18 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;
       <div>
         <p class="label">03 · What I do</p>
         <h2 class="h2" id="what-h">One team, the whole stack.</h2>
+        <p class="what-intro">Six areas I run, from the roadmap and the platform to the people who ship it.</p>
+        <div class="pl-ctrl"><button type="button" class="pl-btn prev" aria-label="Previous areas" aria-controls="pl-scroll"><svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></button><button type="button" class="pl-btn next" aria-label="More areas" aria-controls="pl-scroll"><svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></button><span class="pl-track" aria-hidden="true"><span></span></span></div>
       </div>
-      <div class="pillars">
-        <div class="pillar"><span class="ibox"><svg class="icon" aria-hidden="true"><use href="#i-layers"/></svg></span><h3>Product &amp; engineering</h3><p>Storefronts, platforms and integrations, owned in-house at lower cost.</p></div>
-        <div class="pillar"><span class="ibox"><svg class="icon" aria-hidden="true"><use href="#i-db"/></svg></span><h3>Data &amp; customer experience</h3><p>Analytics, CRO, search and site speed run as one practice, not five vendors.</p></div>
-        <div class="pillar"><span class="ibox"><svg class="icon" aria-hidden="true"><use href="#i-spark"/></svg></span><h3>AI in everyday operations</h3><p>Claude and MCP-connected agents for QA, ticketing, catalog and campaigns.</p></div>
+      <div class="pl-scroll" id="pl-scroll" tabindex="0" role="region" aria-label="What I do, six areas">
+        <ul class="pillars">
+          <li class="pillar"><span class="ibox"><svg class="icon" aria-hidden="true"><use href="#i-trend"/></svg></span><h3>Ecommerce strategy &amp; growth</h3><p>Roadmaps tied to revenue across DTC, wholesale and cross-border, not vanity metrics.</p></li>
+          <li class="pillar"><span class="ibox"><svg class="icon" aria-hidden="true"><use href="#i-layers"/></svg></span><h3>Platforms &amp; integrations</h3><p>Replatforms to Shopify Plus, Salesforce or headless, with ERP, search and shipping integrations owned in-house.</p></li>
+          <li class="pillar"><span class="ibox"><svg class="icon" aria-hidden="true"><use href="#i-db"/></svg></span><h3>Data &amp; analytics</h3><p>Warehouses, dashboards and AI analytics agents that answer a question in minutes, not a week.</p></li>
+          <li class="pillar"><span class="ibox"><svg class="icon" aria-hidden="true"><use href="#i-gauge"/></svg></span><h3>Customer experience &amp; CRO</h3><p>Search, site speed, fitment and checkout, run as one practice instead of five vendors.</p></li>
+          <li class="pillar"><span class="ibox"><svg class="icon" aria-hidden="true"><use href="#i-spark"/></svg></span><h3>AI in everyday operations</h3><p>Claude and MCP-connected agents for QA, ticketing, catalog and campaigns.</p></li>
+          <li class="pillar"><span class="ibox"><svg class="icon" aria-hidden="true"><use href="#i-users"/></svg></span><h3>Teams &amp; delivery</h3><p>Centers of excellence and Kanban delivery; teams grown from under 5 to 50+ with zero voluntary turnover.</p></li>
+        </ul>
       </div>
     </div>
   </section>
@@ -800,6 +830,27 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;
 <script>
 /* Work history: pins the section and steps through the roles as you scroll.
    Skipped for reduced motion, where the rows stay ordinary tap-to-open <details>. */
+(function(){
+  var sc=document.getElementById('pl-scroll');if(!sc)return;
+  var prev=document.querySelector('.pl-btn.prev'),next=document.querySelector('.pl-btn.next'),bar=document.querySelector('.pl-track span'),
+      calm=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var goal=null;
+  function step(){var c=sc.querySelector('.pillar');return c?c.offsetWidth+16:sc.clientWidth}
+  function go(d){
+    var max=sc.scrollWidth-sc.clientWidth,from=goal!==null?goal:sc.scrollLeft;
+    goal=Math.max(0,Math.min(max,(Math.round(from/step())+d)*step()));
+    sc.scrollTo({left:goal,behavior:calm?'auto':'smooth'});
+  }
+  function upd(){
+    var max=sc.scrollWidth-sc.clientWidth;
+    if(goal!==null&&Math.abs(sc.scrollLeft-goal)<2)goal=null;
+    prev.disabled=sc.scrollLeft<=2;next.disabled=sc.scrollLeft>=max-2;sc.classList.toggle('more',!next.disabled);
+    var w=sc.clientWidth/sc.scrollWidth;bar.style.width=(w*100)+'%';bar.style.transform='translateX('+(max>0?sc.scrollLeft/max*(1/w-1)*100:0)+'%)';
+  }
+  prev.addEventListener('click',function(){go(-1)});
+  next.addEventListener('click',function(){go(1)});
+  sc.addEventListener('scroll',upd,{passive:true});sc.addEventListener('pointerdown',function(){goal=null});window.addEventListener('resize',upd);upd();
+})();
 (function(){
   var work=document.getElementById('work');
   if(!work||!window.matchMedia||matchMedia('(prefers-reduced-motion: reduce)').matches)return;
