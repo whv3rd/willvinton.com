@@ -252,6 +252,65 @@ span.smark{display:inline-grid;place-items:center;border-radius:5px;background:v
 .job li::marker{color:var(--accent)}
 .job .sub{margin-top:16px;font-weight:600;font-size:.95rem}
 
+/* about: three cards, each with a small drawing that animates once in view (JS adds .in; reduced motion shows the end state) */
+.about{position:relative;padding-block:clamp(80px,10vw,130px);border-bottom:1px solid var(--line)}
+.about-head{display:grid;grid-template-columns:1fr minmax(0,26rem);gap:40px;align-items:end;margin-bottom:48px}
+.about-head > p{color:var(--muted)}
+.about-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.25fr);grid-template-rows:auto auto;gap:16px}
+.acard{position:relative;overflow:hidden;border:1px solid var(--line);border-radius:24px;background:var(--surface);padding:clamp(24px,3vw,34px);display:flex;flex-direction:column;gap:14px;min-width:0}
+.acard.de{grid-row:span 2}
+.acard h3{font:700 1.5rem/1.15 var(--display);letter-spacing:-.015em}
+.acard p{color:var(--muted);font-size:.98rem}
+.acard .kicker{font:500 .7rem/1.4 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--accent)}
+.acard svg.art{display:block;width:100%;height:auto;overflow:visible}
+.facts{display:flex;flex-wrap:wrap;gap:6px;margin-top:auto;padding-top:6px}
+.facts span{font:400 .74rem/1 var(--mono);padding:7px 9px;border-radius:7px;border:1px solid var(--line);background:color-mix(in srgb,var(--bg) 55%,transparent);color:var(--ink)}
+/* Delaware */
+.de .art{max-width:270px;margin:8px auto 10px}
+@media (max-width:1000px){.de .art{max-width:200px}}
+.de .state{fill:var(--accent-soft);fill-opacity:0;stroke:var(--accent);stroke-width:2;stroke-linejoin:round;stroke-dasharray:1;stroke-dashoffset:0}
+.de .river{fill:none;stroke:var(--accent);stroke-opacity:.35;stroke-width:1.5;stroke-dasharray:2 5}
+.de .pin{fill:var(--live)}
+.de .ring{fill:none;stroke:var(--live);stroke-width:1.5;transform-box:fill-box;transform-origin:center}
+.de .town{font:500 9px var(--mono);letter-spacing:.08em;fill:var(--ink)}
+.de .dot{fill:var(--muted)}
+.de .small{font:400 7px var(--mono);letter-spacing:.06em;fill:var(--muted)}
+/* Philadelphia */
+.phl .sky{fill:none;stroke:var(--ink);stroke-opacity:.8;stroke-width:1.6;stroke-linejoin:round;stroke-dasharray:1;stroke-dashoffset:0}
+.phl .ground{stroke:var(--line);stroke-width:2}
+.phl .win{opacity:.9}
+.teams{display:flex;flex-wrap:wrap;gap:6px}
+.teams span{display:inline-flex;align-items:center;gap:7px;font:500 .74rem/1 var(--mono);padding:7px 10px 7px 8px;border-radius:999px;border:1px solid var(--line);background:color-mix(in srgb,var(--bg) 55%,transparent)}
+.teams i{width:9px;height:9px;border-radius:50%;background:var(--c)}
+/* Triathlon */
+.tri .course{fill:none;stroke:var(--line);stroke-width:4;stroke-linecap:round}
+.tri .prog{fill:none;stroke:var(--accent);stroke-width:4;stroke-linecap:round;stroke-dasharray:1;stroke-dashoffset:0}
+.tri .leg{font:500 10px var(--mono);letter-spacing:.12em;fill:var(--muted)}
+.tri .sub{font:400 8.5px var(--mono);fill:var(--muted);opacity:.8}
+.tri .flag{fill:var(--live)}
+@media (prefers-reduced-motion:no-preference){
+  .js .about .state,.js .about .sky{stroke-dashoffset:1}
+  .js .about .tri .prog{stroke-dashoffset:1}
+  .js .about .win{opacity:0}
+  .js .about .pin,.js .about .town{opacity:0}
+  .about.in .state{stroke-dashoffset:0;fill-opacity:.55;transition:stroke-dashoffset 2.4s cubic-bezier(.6,0,.3,1),fill-opacity 1s 1.8s}
+  .about.in .pin,.about.in .town{opacity:1;transition:opacity .5s 2.2s}
+  .about.in .ring{animation:ring 2.4s 2.6s ease-out infinite}
+  @keyframes ring{0%{transform:scale(.6);opacity:.9}100%{transform:scale(3);opacity:0}}
+  .about.in .sky{stroke-dashoffset:0;transition:stroke-dashoffset 2.6s cubic-bezier(.5,0,.3,1)}
+  .about.in .win{animation:twinkle 4.8s calc(2s + var(--d) * 1s) infinite}
+  @keyframes twinkle{0%,100%{opacity:.15}20%,60%{opacity:1}}
+  .about.in .teams i{animation:beat 5s calc(var(--d) * 1s) infinite}
+  @keyframes beat{0%,12%,100%{box-shadow:0 0 0 0 transparent}6%{box-shadow:0 0 0 5px color-mix(in srgb,var(--c) 35%,transparent)}}
+  .about.in .tri .prog{animation:race 7s .4s cubic-bezier(.45,0,.4,1) infinite}
+  @keyframes race{0%{stroke-dashoffset:1}70%,88%{stroke-dashoffset:0;opacity:1}100%{stroke-dashoffset:0;opacity:0}}
+  .about.in .tri .leg{animation:legon 7s .4s infinite}
+  .about.in .tri .leg.b{animation-name:legon2}.about.in .tri .leg.r{animation-name:legon3}
+  @keyframes legon{0%,25%{fill:var(--accent)}30%,100%{fill:var(--muted)}}
+  @keyframes legon2{0%,25%{fill:var(--muted)}30%,52%{fill:var(--accent)}57%,100%{fill:var(--muted)}}
+  @keyframes legon3{0%,52%{fill:var(--muted)}57%,88%{fill:var(--accent)}95%,100%{fill:var(--muted)}}
+}
+
 /* work: scroll-driven history. JS adds .pinned (skipped for reduced motion), so without it the rows are plain <details>. */
 .work-foot{display:grid;gap:20px;justify-items:start;width:100%}
 .wk-stage,.wk-chips{display:none}
@@ -353,7 +412,9 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;
   .bento{grid-template-columns:1fr 1fr}
   .tile.big{grid-row:auto;grid-column:1 / -1}
   .tile.wide{grid-column:1 / -1}
-  .curve-head,.what-grid,.work-grid{grid-template-columns:1fr}
+  .curve-head,.what-grid,.work-grid,.about-head{grid-template-columns:1fr}
+  .about-grid{grid-template-columns:1fr}
+  .acard.de{grid-row:auto}
   .work-aside{position:static}
   .build-grid{grid-template-columns:1fr}
 }
@@ -422,6 +483,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;
       <a href="#results">Results</a>
       <a href="#building">Building</a>
       <a href="#work">Work</a>
+      <a href="#about">About</a>
       <a class="btn primary sm" href="#contact">Say hello <svg class="icon" aria-hidden="true"><use href="#i-arrow-ur"/></svg></a>
     </nav>
   </div>
@@ -790,10 +852,62 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;
     </div></div>
   </section>
 
+  <section class="about" id="about" aria-labelledby="about-h">
+    <div class="wrap">
+      <div class="about-head">
+        <div>
+          <p class="label">06 · About</p>
+          <h2 class="h2" id="about-h">Will from<br>Wilmington.</h2>
+        </div>
+        <p>Off the clock: family, Delaware, Philadelphia sports and anything that ends in a finish line.</p>
+      </div>
+      <div class="about-grid">
+        <article class="acard de">
+          <span class="kicker">Home</span>
+          <svg class="art" viewBox="0 0 150 244" role="img" aria-label="A drawing of Delaware with a pin on Wilmington">
+            <path class="state" pathLength="1" d="M30 18 C 38 8, 54 4, 66 8 C 70 14, 70 22, 68 30 C 70 44, 72 58, 76 72 C 80 88, 86 104, 96 120 C 104 132, 110 142, 118 150 L 112 154 C 114 172, 118 196, 120 236 L 28 236 C 28 190, 28 120, 30 18 Z"/>
+            <path class="river" d="M72 20 C 76 50, 82 84, 98 112 C 108 128, 118 140, 128 146"/>
+            <circle class="ring" cx="56" cy="24" r="5"/>
+            <circle class="pin" cx="56" cy="24" r="4"/>
+            <text class="town" x="80" y="22">WILMINGTON</text>
+            <circle class="dot" cx="52" cy="128" r="2.2"/><text class="small" x="58" y="131">DOVER</text>
+            <circle class="dot" cx="113" cy="178" r="2.2"/><text class="small" x="106" y="181" text-anchor="end">BEACHES</text>
+          </svg>
+          <h3>Delaware, through and through.</h3>
+          <p>I'm from Delaware and I love it here. Married, with two young kids, born in 2019 and 2023, and our second family golden retriever.</p>
+          <div class="facts"><span>Wilmington, DE</span><span>Two kids</span><span>Golden retriever, the sequel</span></div>
+        </article>
+        <article class="acard phl">
+          <span class="kicker">Philadelphia</span>
+          <svg class="art" viewBox="0 0 320 136" role="img" aria-label="A line drawing of the Philadelphia skyline with windows lit in team colors">
+            <path class="sky" pathLength="1" d="M4 130 V 104 H 34 V 130 M 40 130 V 92 H 56 V 52 H 60 V 40 H 62 V 30 H 64 V 22 H 66 V 30 H 68 V 40 H 70 V 52 H 74 V 92 H 92 V 130 M 108 130 V 42 L 122 8 L 136 42 V 130 M 140 130 V 56 L 150 28 L 160 56 V 130 M 166 130 V 88 H 196 V 130 M 200 130 V 18 H 230 V 130 M 240 130 V 34 L 251 18 L 262 34 V 130 M 270 130 V 96 H 300 V 130"/>
+            <line class="ground" x1="0" y1="131" x2="320" y2="131"/>
+            <rect class="win" x="48" y="100" width="4" height="5" rx="1" fill="#1F8C8A" style="--d:0.00"/><rect class="win" x="60" y="108" width="4" height="5" rx="1" fill="#E81828" style="--d:2.33"/><rect class="win" x="78" y="100" width="4" height="5" rx="1" fill="#1D6FD1" style="--d:1.00"/><rect class="win" x="64" y="58" width="4" height="5" rx="1" fill="#F74902" style="--d:3.33"/><rect class="win" x="116" y="50" width="4" height="5" rx="1" fill="#C9A13A" style="--d:2.00"/><rect class="win" x="126" y="70" width="4" height="5" rx="1" fill="#1F8C8A" style="--d:0.67"/><rect class="win" x="116" y="92" width="4" height="5" rx="1" fill="#E81828" style="--d:3.00"/><rect class="win" x="146" y="62" width="4" height="5" rx="1" fill="#1D6FD1" style="--d:1.67"/><rect class="win" x="152" y="86" width="4" height="5" rx="1" fill="#F74902" style="--d:0.33"/><rect class="win" x="172" y="96" width="4" height="5" rx="1" fill="#C9A13A" style="--d:2.67"/><rect class="win" x="206" y="30" width="4" height="5" rx="1" fill="#1F8C8A" style="--d:1.33"/><rect class="win" x="218" y="52" width="4" height="5" rx="1" fill="#E81828" style="--d:0.00"/><rect class="win" x="206" y="76" width="4" height="5" rx="1" fill="#1D6FD1" style="--d:2.33"/><rect class="win" x="248" y="44" width="4" height="5" rx="1" fill="#F74902" style="--d:1.00"/><rect class="win" x="252" y="72" width="4" height="5" rx="1" fill="#C9A13A" style="--d:3.33"/><rect class="win" x="278" y="104" width="4" height="5" rx="1" fill="#1F8C8A" style="--d:2.00"/><rect class="win" x="20" y="108" width="4" height="5" rx="1" fill="#E81828" style="--d:0.67"/><rect class="win" x="184" y="110" width="4" height="5" rx="1" fill="#1D6FD1" style="--d:3.00"/>
+          </svg>
+          <h3>Philly, every season.</h3>
+          <p>A lifelong Philadelphia sports fan. If one of these teams is playing, it's on.</p>
+          <div class="teams"><span><i style="--c:#1F8C8A;--d:0"></i>Eagles</span><span><i style="--c:#E81828;--d:1"></i>Phillies</span><span><i style="--c:#1D6FD1;--d:2"></i>Sixers</span><span><i style="--c:#F74902;--d:3"></i>Flyers</span><span><i style="--c:#C9A13A;--d:4"></i>Union</span></div>
+        </article>
+        <article class="acard tri">
+          <span class="kicker">Swim · Bike · Run</span>
+          <svg class="art" viewBox="0 0 320 116" role="img" aria-label="A triathlon course: swim, bike, then run">
+            <path class="course" d="M10 70 q 11 -9 22 0 t 22 0 t 22 0 t 22 0 L 112 70 C 132 70 140 28 166 28 S 196 70 216 70 L 306 70"/>
+            <path class="prog" pathLength="1" d="M10 70 q 11 -9 22 0 t 22 0 t 22 0 t 22 0 L 112 70 C 132 70 140 28 166 28 S 196 70 216 70 L 306 70"/>
+            <rect class="flag" x="304" y="54" width="3" height="18" rx="1"/><path class="flag" d="M307 54 h 10 l -3 4 l 3 4 h -10 z"/>
+            <text class="leg s" x="54" y="96" text-anchor="middle">SWIM</text><text class="leg b" x="164" y="96" text-anchor="middle">BIKE</text><text class="leg r" x="261" y="96" text-anchor="middle">RUN</text>
+            <text class="sub" x="54" y="110" text-anchor="middle">whole life</text><text class="sub" x="164" y="110" text-anchor="middle">mountain + road</text><text class="sub" x="261" y="110" text-anchor="middle">since middle school</text>
+          </svg>
+          <h3>Anything with a finish line.</h3>
+          <p>I've swum my whole life and ran from middle school through college. Triathlon put the three together, and I still ride both mountain and road.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
   <section class="contact" id="contact" aria-labelledby="contact-h">
     <span class="glow" aria-hidden="true"></span>
     <div class="wrap rel">
-      <p class="label">06 · Contact</p>
+      <p class="label">07 · Contact</p>
       <h2 id="contact-h">Have a product to launch or a team to build?</h2>
       <p class="lede">I work with founders and leadership teams on ecommerce strategy, replatforms and digital operations. Email is the fastest way to reach me.</p>
       <div class="email">
@@ -817,6 +931,13 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;
     var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){curve.classList.add('in');io.disconnect()}})},{threshold:.15});
     io.observe(curve);
   } else curve.classList.add('in');
+  var about=document.getElementById('about');
+  if(about){
+    if('IntersectionObserver' in window){
+      var ao=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){about.classList.add('in');ao.disconnect()}})},{threshold:.2});
+      ao.observe(about);
+    } else about.classList.add('in');
+  }
 
   var b=document.getElementById('copyEmail');
   b.addEventListener('click',function(){
