@@ -275,15 +275,15 @@ span.smark{display:inline-grid;place-items:center;border-radius:5px;background:v
 .facts{display:flex;flex-wrap:wrap;gap:6px;margin-top:auto;padding-top:6px}
 .facts span{font:400 .74rem/1 var(--mono);padding:7px 9px;border-radius:7px;border:1px solid var(--line);background:color-mix(in srgb,var(--bg) 55%,transparent);color:var(--ink)}
 /* Delaware */
-.de .art{max-width:270px;margin:8px auto 10px}
-@media (max-width:1000px){.de .art{max-width:200px}}
+.de .art{max-width:340px;margin:8px auto 10px}
+@media (max-width:1000px){.de .art{max-width:320px}}
 .de .state{fill:var(--accent-soft);fill-opacity:0;stroke:var(--accent);stroke-width:2;stroke-linejoin:round;stroke-dasharray:1;stroke-dashoffset:0}
-.de .river{fill:none;stroke:var(--accent);stroke-opacity:.35;stroke-width:1.5;stroke-dasharray:2 5}
 .de .pin{fill:var(--live)}
 .de .ring{fill:none;stroke:var(--live);stroke-width:1.5;transform-box:fill-box;transform-origin:center}
-.de .town{font:500 9px var(--mono);letter-spacing:.08em;fill:var(--ink)}
+.de .town{font:500 10px var(--mono);letter-spacing:.08em;fill:var(--ink)}
 .de .dot{fill:var(--muted)}
-.de .small{font:400 7px var(--mono);letter-spacing:.06em;fill:var(--muted)}
+.de .dot.beach{fill:var(--next)}
+.de .small{font:400 8.5px var(--mono);letter-spacing:.06em;fill:var(--muted)}
 /* Philadelphia */
 .phl .sky{fill:none;stroke:var(--ink);stroke-opacity:.8;stroke-width:1.6;stroke-linejoin:round;stroke-dasharray:1;stroke-dashoffset:0}
 .phl .ground{stroke:var(--line);stroke-width:2}
@@ -878,18 +878,20 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;
       <div class="about-grid">
         <article class="acard de">
           <span class="kicker">Home</span>
-          <svg class="art" viewBox="0 0 150 244" role="img" aria-label="A drawing of Delaware with a pin on Wilmington">
-            <path class="state" pathLength="1" d="M30 18 C 38 8, 54 4, 66 8 C 70 14, 70 22, 68 30 C 70 44, 72 58, 76 72 C 80 88, 86 104, 96 120 C 104 132, 110 142, 118 150 L 112 154 C 114 172, 118 196, 120 236 L 28 236 C 28 190, 28 120, 30 18 Z"/>
-            <path class="river" d="M72 20 C 76 50, 82 84, 98 112 C 108 128, 118 140, 128 146"/>
-            <circle class="ring" cx="56" cy="24" r="5"/>
-            <circle class="pin" cx="56" cy="24" r="4"/>
-            <text class="town" x="80" y="22">WILMINGTON</text>
-            <circle class="dot" cx="52" cy="128" r="2.2"/><text class="small" x="58" y="131">DOVER</text>
-            <circle class="dot" cx="113" cy="178" r="2.2"/><text class="small" x="106" y="181" text-anchor="end">BEACHES</text>
+          <svg class="art" viewBox="0 0 240 300" role="img" aria-label="A map of Delaware marking Hockessin, Wilmington, Dover, Rehoboth Beach and Bethany Beach">
+            <path class="state" pathLength="1" d="M66.6 33.7 L67.6 31.4 L68.8 29.1 L70.1 26.9 L71.6 24.9 L73.3 22.9 L75.1 21.1 L77.0 19.4 L79.0 17.9 L81.2 16.5 L83.4 15.3 L85.7 14.2 L88.1 13.3 L90.6 12.6 L93.1 12.1 L95.6 11.8 L98.1 11.6 L100.7 11.7 L103.2 11.9 L105.7 12.3 L108.2 12.9 L110.7 13.7 L113.0 14.6 L115.3 15.7 L117.5 17.0 L114.8 20.0 L107.8 29.0 L103.9 38.0 L100.0 46.0 L95.4 62.0 L96.9 78.0 L100.8 94.0 L113.2 112.0 L122.5 128.0 L124.9 142.0 L124.9 164.0 L134.9 180.0 L139.6 194.0 L147.4 206.0 L161.3 218.0 L166.0 221.0 L171.4 217.0 L173.0 222.0 L174.4 234.0 L175.6 242.0 L177.2 256.0 L177.9 270.0 L178.6 287.8 L76.4 287.8 Z"/>
+            <circle class="dot" cx="78" cy="21" r="2.2"/><text class="small" x="72" y="24" text-anchor="end">HOCKESSIN</text>
+            <circle class="ring" cx="101" cy="29" r="5"/>
+            <circle class="pin" cx="101" cy="29" r="4"/>
+            <text class="town" x="114" y="33">WILMINGTON</text>
+            <circle class="dot" cx="105" cy="146" r="2.2"/><text class="small" x="99" y="149" text-anchor="end">DOVER</text>
+            <circle class="dot beach" cx="174" cy="234" r="2.6"/><text class="small" x="182" y="237">REHOBOTH</text>
+            <circle class="dot beach" cx="177" cy="270" r="2.6"/><text class="small" x="185" y="273">BETHANY</text>
           </svg>
           <h3>Delaware, through and through.</h3>
           <p>I'm from Delaware and I love it here. Married, with two young kids, born in 2019 and 2023, and our second family golden retriever.</p>
-          <div class="facts"><span>Wilmington, DE</span><span>Two kids</span><span>Golden retriever, the sequel</span></div>
+          <p>I grew up going to the Delaware beaches every summer, and it's still in my blood: every year, our vacation is Rehoboth.</p>
+          <div class="facts"><span>Wilmington, DE</span><span>Two kids</span><span>Rehoboth every summer</span><span>Golden retriever, the sequel</span></div>
         </article>
         <article class="acard phl">
           <span class="kicker">Philadelphia</span>
