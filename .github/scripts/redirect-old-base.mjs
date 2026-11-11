@@ -3,6 +3,9 @@
 // so for every page under the new base this writes a small page at each old URL that
 // forwards to the new one (keeping any query string and #hash). The old path is the
 // new path with the new name swapped for the old one in every segment.
+// Pages that moved within the new base are listed in MOVED: the old address under the
+// new base gets a forwarding page too, and old-name URLs skip straight to the final page,
+// so no URL takes more than one hop.
 // Usage: node redirect-old-base.mjs <site-dir> <new-base> <site-origin> <old-base>...
 //   e.g. node redirect-old-base.mjs _site /springspot https://www.willvinton.com /springboard /springsboard
 import { mkdir, readdir, writeFile } from 'node:fs/promises';
@@ -27,16 +30,39 @@ const page = (target) => `<!doctype html>
 </head><body><p>This page has moved to Springspot. <a href="${esc(target)}">Continue to the new page</a>.</p></body></html>
 `;
 
+// Moved pages, as built-file paths under the new base: old → current.
+const MOVED = {
+  // "What is Springspot?" was /springspot/springspot/ (and /springboard/springboard/).
+  'springspot/index.html': 'what-is-springspot/index.html',
+};
+
 const files = (await readdir(join(siteDir, newBase), { recursive: true }))
   .map((f) => f.split('\\').join('/'))
   .filter((f) => f.endsWith('.html'));
+const url = (rel) => '/' + newBase + '/' + rel.replace(/(^|\/)index\.html$/, '$1');
+// [path under the new base, where it should land]
+const pages = files.map((rel) => [rel, url(rel)]);
+let moved = 0;
+for (const [from, to] of Object.entries(MOVED)) {
+  // Skipped (not fatal) while the Springspot build predates the move, so the two repos'
+  // changes can land in either order.
+  if (!files.includes(to) || files.includes(from)) {
+    console.warn(`Skipping moved page ${from} -> ${to}: the build doesn't have that move yet`);
+    continue;
+  }
+  moved++;
+  pages.push([from, url(to)]);
+  const out = join(siteDir, newBase, from);
+  await mkdir(dirname(out), { recursive: true });
+  await writeFile(out, page(url(to)));
+}
+if (moved) console.log(`Wrote ${moved} moved-page redirect(s) under /${newBase}/`);
 for (const oldBase of oldBases) {
-  for (const rel of files) {
+  for (const [rel, target] of pages) {
     const oldRel = rel.replaceAll(newBase, oldBase);
-    const target = '/' + newBase + '/' + rel.replace(/(^|\/)index\.html$/, '$1');
     const out = join(siteDir, oldBase, oldRel);
     await mkdir(dirname(out), { recursive: true });
     await writeFile(out, page(target));
   }
-  console.log(`Wrote ${files.length} redirect page(s) from /${oldBase}/ to /${newBase}/`);
+  console.log(`Wrote ${pages.length} redirect page(s) from /${oldBase}/ to /${newBase}/`);
 }
