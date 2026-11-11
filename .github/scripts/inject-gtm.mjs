@@ -1,5 +1,7 @@
 // Adds the Google Tag Manager container to every built HTML page: the loader at the
 // top of <head> (after <meta charset>) and the noscript fallback right after <body>.
+// Also loads /analytics.js (served from the willvinton.com root), the tracking helper
+// both sites share; see TRACKING.md. Run after prefix-base.mjs so the path stays as is.
 // Usage: node inject-gtm.mjs <dist-dir> <GTM-XXXXXXX>
 import { readdir, readFile, writeFile } from 'node:fs/promises';
 import { join } from 'node:path';
@@ -11,6 +13,7 @@ if (!dir || !/^GTM-[A-Z0-9]+$/.test(id ?? '')) {
 }
 
 const head = `<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','${id}');</script>`;
+const helper = '<script src="/analytics.js" defer></script>';
 const body = `<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=${id}" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>`;
 
 let changed = 0;
@@ -21,7 +24,7 @@ for (const file of await readdir(dir, { recursive: true })) {
   if (before.includes(`gtm.js?id=`) || !/<head[^>]*>/i.test(before)) continue;
   const anchor = /<meta charset[^>]*>/i.test(before) ? /<meta charset[^>]*>/i : /<head[^>]*>/i;
   const after = before
-    .replace(anchor, (m) => m + head)
+    .replace(anchor, (m) => m + head + helper)
     .replace(/<body[^>]*>/i, (m) => m + body);
   await writeFile(path, after);
   changed++;

@@ -22,6 +22,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
 })(window,document,'script','dataLayer','GTM-W64VTKTX');</script>
 <!-- End Google Tag Manager -->
+<script src="/analytics.js" defer></script>
 <script>document.documentElement.classList.add('js')</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Will Vinton","url":"https://www.willvinton.com/","image":"https://www.willvinton.com/headshot.jpg","jobTitle":"Ecommerce, digital product and technology leader","address":{"@type":"PostalAddress","addressLocality":"Wilmington","addressRegion":"DE","addressCountry":"US"},"alumniOf":{"@type":"CollegeOrUniversity","name":"Northeastern University"},"sameAs":["https://www.linkedin.com/in/will-vinton","https://github.com/whv3rd"]}</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -488,17 +489,17 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;
 <header class="top" id="top">
   <div class="wrap">
     <nav class="sites" aria-label="Sites">
-      <a class="site on" href="#main" aria-current="true"><span class="smark" aria-hidden="true">wv</span><span class="slabel">willvinton.com</span></a>
+      <a class="site on" href="#main" aria-current="true" data-track="logo_click" data-track-link-text="willvinton.com"><span class="smark" aria-hidden="true">wv</span><span class="slabel">willvinton.com</span></a>
       <span class="sdiv" aria-hidden="true"></span>
-      <a class="site" href="/springspot/"><svg class="smark" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="7" fill="currentColor"/><path d="M8 22h16M11 22l5-12 5 12" stroke="var(--bg)" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="slabel">Springspot AI</span><svg class="icon sout" aria-hidden="true"><use href="#i-arrow-ur"/></svg></a>
+      <a class="site" href="/springspot/" data-track="nav_click" data-track-nav-type="site_tabs" data-track-link-text="Springspot AI"><svg class="smark" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="7" fill="currentColor"/><path d="M8 22h16M11 22l5-12 5 12" stroke="var(--bg)" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="slabel">Springspot AI</span><svg class="icon sout" aria-hidden="true"><use href="#i-arrow-ur"/></svg></a>
     </nav>
-    <nav class="sections" aria-label="Sections">
+    <nav class="sections" aria-label="Sections" data-track-area="nav" data-track-nav-type="primary">
       <a href="#curve">The curve</a>
       <a href="#results">Results</a>
       <a href="#building">Building</a>
       <a href="#work">Work</a>
       <a href="#about">About</a>
-      <a class="btn primary sm" href="#contact">Say hello <svg class="icon" aria-hidden="true"><use href="#i-arrow-ur"/></svg></a>
+      <a class="btn primary sm" href="#contact" data-track="cta_click" data-track-cta-location="header">Say hello <svg class="icon" aria-hidden="true"><use href="#i-arrow-ur"/></svg></a>
     </nav>
   </div>
 </header>
@@ -512,8 +513,8 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;
         <h1 id="name">will vinton</h1>
         <p class="intro">I build and run online businesses, from a self-funded startup to <strong>hundreds of millions a year in digital revenue</strong>. Across the brands I've led and advised, that's <strong>more than $1.5B in revenue growth</strong>. These days I put AI to work inside the systems that run them.</p>
         <div class="cta">
-          <a class="btn primary" href="#contact">Get in touch <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
-          <a class="btn" href="#curve">See the curve <svg class="icon" aria-hidden="true"><use href="#i-down"/></svg></a>
+          <a class="btn primary" href="#contact" data-track="cta_click">Get in touch <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+          <a class="btn" href="#curve" data-track="cta_click">See the curve <svg class="icon" aria-hidden="true"><use href="#i-down"/></svg></a>
         </div>
       </div>
       <div class="portrait-wrap">
@@ -651,14 +652,14 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;
     </div>
   </section>
 
-  <section class="what" aria-labelledby="what-h">
+  <section class="what" aria-labelledby="what-h" data-track-location="what_i_do">
     <span class="glow" aria-hidden="true"></span>
     <div class="wrap rel what-grid">
       <div>
         <p class="label">03 · What I do</p>
         <h2 class="h2" id="what-h">One team, the whole stack.</h2>
         <p class="what-intro">Six areas I run, from the roadmap and the platform to the people who ship it.</p>
-        <div class="pl-ctrl"><button type="button" class="pl-btn prev" aria-label="Previous areas" aria-controls="pl-scroll"><svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></button><button type="button" class="pl-btn next" aria-label="More areas" aria-controls="pl-scroll"><svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></button><span class="pl-track" aria-hidden="true"><span></span></span></div>
+        <div class="pl-ctrl"><button type="button" class="pl-btn prev" aria-label="Previous areas" data-track="carousel_nav" data-track-ui-action="prev" aria-controls="pl-scroll"><svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></button><button type="button" class="pl-btn next" aria-label="More areas" data-track="carousel_nav" data-track-ui-action="next" aria-controls="pl-scroll"><svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></button><span class="pl-track" aria-hidden="true"><span></span></span></div>
       </div>
       <div class="pl-scroll" id="pl-scroll" tabindex="0" role="region" aria-label="What I do, six areas">
         <ul class="pillars">
@@ -678,7 +679,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;
       <p class="label">04 · Now building</p>
       <h2 class="h2" id="building-h">Things I'm making<br>right now.</h2>
       <div class="build-grid">
-        <a class="feature" href="/springspot/">
+        <a class="feature" href="/springspot/" data-track-project="Springspot AI" data-track-project-status="current">
           <svg class="arc" viewBox="0 0 300 240" aria-hidden="true">
             <path d="M10 220 C 90 220, 120 40, 290 20" stroke="var(--accent)" stroke-width="2" stroke-dasharray="1 9" stroke-linecap="round" fill="none"/>
             <path d="M10 220 H 120" stroke="var(--ink)" stroke-width="3" stroke-linecap="round"/>
@@ -692,10 +693,10 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;
           <span class="go">Read the blog <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></span>
         </a>
         <div class="side">
-          <article class="mini"><span class="ibox"><svg class="icon" aria-hidden="true"><use href="#i-compass"/></svg></span><div><b>Brecks Brothers Digital Consulting</b><p>Ecommerce strategy, from a product or idea to a full Shopify Plus site.</p></div><span class="chip now">Now</span></article>
-          <article class="mini"><span class="ibox"><svg class="icon" aria-hidden="true"><use href="#i-users"/></svg></span><div><b>Commerce Builds engagements</b><p>A footwear replatform going live November 2026, plus growth and catalog work.</p></div><span class="chip now">Now</span></article>
-          <article class="mini"><span class="ibox"><svg class="icon" aria-hidden="true"><use href="#i-bag"/></svg></span><div><b>Hobby collectibles store</b><p>Shopify dropship, from sports cards to Pokémon and coins.</p></div><span class="chip now">Now</span></article>
-          <article class="mini"><span class="ibox"><svg class="icon" aria-hidden="true"><use href="#i-drop"/></svg></span><div><b>Pool care store</b><p>Focused dropship for pool skimming gear.</p></div><span class="chip next">Next</span></article>
+          <article class="mini" data-track-project="Brecks Brothers Digital Consulting" data-track-project-status="current"><span class="ibox"><svg class="icon" aria-hidden="true"><use href="#i-compass"/></svg></span><div><b>Brecks Brothers Digital Consulting</b><p>Ecommerce strategy, from a product or idea to a full Shopify Plus site.</p></div><span class="chip now">Now</span></article>
+          <article class="mini" data-track-project="Commerce Builds engagements" data-track-project-status="current"><span class="ibox"><svg class="icon" aria-hidden="true"><use href="#i-users"/></svg></span><div><b>Commerce Builds engagements</b><p>A footwear replatform going live November 2026, plus growth and catalog work.</p></div><span class="chip now">Now</span></article>
+          <article class="mini" data-track-project="Hobby collectibles store" data-track-project-status="current"><span class="ibox"><svg class="icon" aria-hidden="true"><use href="#i-bag"/></svg></span><div><b>Hobby collectibles store</b><p>Shopify dropship, from sports cards to Pokémon and coins.</p></div><span class="chip now">Now</span></article>
+          <article class="mini" data-track-project="Pool care store" data-track-project-status="next"><span class="ibox"><svg class="icon" aria-hidden="true"><use href="#i-drop"/></svg></span><div><b>Pool care store</b><p>Focused dropship for pool skimming gear.</p></div><span class="chip next">Next</span></article>
         </div>
       </div>
     </div>
@@ -958,8 +959,9 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;
   var b=document.getElementById('copyEmail');
   b.addEventListener('click',function(){
     var t=document.getElementById('email').textContent;
-    function done(){b.textContent='Copied';setTimeout(function(){b.textContent='Copy'},1600)}
-    function fallback(){var r=document.createRange();r.selectNodeContents(document.getElementById('email'));var s=getSelection();s.removeAllRanges();s.addRange(r);b.textContent='Selected'}
+    function report(how){if(window.wvTrack)wvTrack('copy_to_clipboard',{content_type:'email',ui_action:how,ui_location:'contact'})}
+    function done(){b.textContent='Copied';setTimeout(function(){b.textContent='Copy'},1600);report('copied')}
+    function fallback(){var r=document.createRange();r.selectNodeContents(document.getElementById('email'));var s=getSelection();s.removeAllRanges();s.addRange(r);b.textContent='Selected';report('selected')}
     try{navigator.clipboard.writeText(t).then(done,fallback)}catch(e){fallback()}
   });
 })();
@@ -991,7 +993,19 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;
 })();
 (function(){
   var work=document.getElementById('work');
-  if(!work||!window.matchMedia||matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+  // Analytics: each job is a project (current if its dates run to "—"). project_view fires the
+  // first time a job is shown; accordion_open when someone picks one.
+  function jobInfo(j){var when=j.querySelector('.when').textContent.trim();
+    return {project_name:j.querySelector('h3').textContent.trim(),project_status:/[—-]$/.test(when)?'current':'past'}}
+  var seen=[];
+  function viewed(j){if(seen.indexOf(j)<0&&window.wvTrack){seen.push(j);wvTrack('project_view',jobInfo(j))}}
+  function picked(j,how){if(window.wvTrack)wvTrack('accordion_open',{ui_item:jobInfo(j).project_name,ui_location:'work',ui_action:how})}
+  if(!work)return;
+  if(!window.matchMedia||matchMedia('(prefers-reduced-motion: reduce)').matches){
+    // Plain <details>: analytics.js reports the open; this adds the project view.
+    [].forEach.call(work.querySelectorAll('.job'),function(j){j.addEventListener('toggle',function(){if(j.open)viewed(j)})});
+    return;
+  }
   var track=work.querySelector('.work-track'),jobsEl=work.querySelector('.jobs'),top=document.querySelector('.top'),
       jobs=[].slice.call(work.querySelectorAll('.job')),scenes=[].slice.call(work.querySelectorAll('.wk-scene')),
       foot=work.querySelector('.work-foot'),N=jobs.length,cur=-1,avail=0,chips=[];
@@ -1003,11 +1017,11 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;
     var body=j.querySelector('.body'),clip=document.createElement('div'),bar=document.createElement('span'),sum=j.querySelector('summary');
     clip.className='wk-clip';j.insertBefore(clip,body);clip.appendChild(body);
     bar.className='wk-bar';j.appendChild(bar);
-    sum.addEventListener('click',function(e){e.preventDefault();jump(k)});
+    sum.addEventListener('click',function(e){e.preventDefault();picked(j,'row');jump(k)});
     var c=document.createElement('button');c.type='button';c.className='wk-chip';
     c.textContent=j.querySelector('.when').textContent.trim().slice(0,4);
     c.setAttribute('aria-label','Jump to '+j.querySelector('h3').textContent);
-    c.addEventListener('click',function(){jump(k)});chipBox.appendChild(c);chips.push(c);
+    c.addEventListener('click',function(){picked(j,'year_chip');jump(k)});chipBox.appendChild(c);chips.push(c);
   });
   jobsEl.insertBefore(chipBox,jobsEl.firstChild);
   if(foot){foot.classList.add('wrap');work.appendChild(foot)}
@@ -1024,6 +1038,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;
   }
   function setActive(i){
     cur=i;
+    if(work.getBoundingClientRect().top<innerHeight)viewed(jobs[i]);
     jobs.forEach(function(j,k){j.classList.toggle('on',k===i)});
     scenes.forEach(function(s,k){s.classList.toggle('on',k===i)});
     chips.forEach(function(c,k){c.classList.toggle('on',k===i)});
