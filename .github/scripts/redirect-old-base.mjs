@@ -42,15 +42,21 @@ const files = (await readdir(join(siteDir, newBase), { recursive: true }))
 const url = (rel) => '/' + newBase + '/' + rel.replace(/(^|\/)index\.html$/, '$1');
 // [path under the new base, where it should land]
 const pages = files.map((rel) => [rel, url(rel)]);
+let moved = 0;
 for (const [from, to] of Object.entries(MOVED)) {
-  if (!files.includes(to)) throw new Error(`MOVED target ${to} isn't in the build`);
-  if (files.includes(from)) throw new Error(`MOVED source ${from} still exists in the build`);
+  // Skipped (not fatal) while the Springspot build predates the move, so the two repos'
+  // changes can land in either order.
+  if (!files.includes(to) || files.includes(from)) {
+    console.warn(`Skipping moved page ${from} -> ${to}: the build doesn't have that move yet`);
+    continue;
+  }
+  moved++;
   pages.push([from, url(to)]);
   const out = join(siteDir, newBase, from);
   await mkdir(dirname(out), { recursive: true });
   await writeFile(out, page(url(to)));
 }
-if (Object.keys(MOVED).length) console.log(`Wrote ${Object.keys(MOVED).length} moved-page redirect(s) under /${newBase}/`);
+if (moved) console.log(`Wrote ${moved} moved-page redirect(s) under /${newBase}/`);
 for (const oldBase of oldBases) {
   for (const [rel, target] of pages) {
     const oldRel = rel.replaceAll(newBase, oldBase);
