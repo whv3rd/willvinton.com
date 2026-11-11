@@ -1,6 +1,6 @@
 name: Deploy site
 
-# Builds willvinton.com plus Springspot AI (repo: whv3rd/Springboard) into one
+# Builds willvinton.com plus Springspot AI (repo: whv3rd/Springboard, the old name) into one
 # GitHub Pages site, with Springspot served at /springspot/. URLs under the earlier
 # names (/springboard/, /springsboard/) get redirect pages to their new addresses.
 # Requires: Settings -> Pages -> Source = "GitHub Actions".
@@ -23,12 +23,13 @@ concurrency:
   cancel-in-progress: false
 
 env:
-  # Branch of whv3rd/Springboard to publish. Override with the repo variable SPRINGBOARD_REF.
-  SPRINGBOARD_REF: ${{ vars.SPRINGBOARD_REF || 'main' }}
-  SPRINGBOARD_BASE: /springspot
+  # Branch of whv3rd/Springboard to publish. Override with the repo variable SPRINGSPOT_REF
+  # (SPRINGBOARD_REF, its earlier name, is still read if it's set).
+  SPRINGSPOT_REF: ${{ vars.SPRINGSPOT_REF || vars.SPRINGBOARD_REF || 'main' }}
+  SPRINGSPOT_BASE: /springspot
   # Where the site lived under earlier names (space-separated); every page there
-  # redirects to the same page under SPRINGBOARD_BASE.
-  SPRINGBOARD_OLD_BASES: /springboard /springsboard
+  # redirects to the same page under SPRINGSPOT_BASE.
+  SPRINGSPOT_OLD_BASES: /springboard /springsboard
   # Google Tag Manager container, injected into every Springspot page.
   GTM_ID: ${{ vars.GTM_ID || 'GTM-W64VTKTX' }}
 
@@ -41,17 +42,17 @@ jobs:
         with:
           path: site
 
-      - name: Check out Springboard
+      - name: Check out Springspot
         uses: actions/checkout@v4
         with:
           repository: whv3rd/Springboard
-          ref: ${{ env.SPRINGBOARD_REF }}
-          path: springboard
+          ref: ${{ env.SPRINGSPOT_REF }}
+          path: springspot
 
-      - name: Confirm Springboard has a site to build
+      - name: Confirm Springspot has a site to build
         run: |
-          if [ ! -f springboard/package.json ]; then
-            echo "::error::whv3rd/Springboard@${SPRINGBOARD_REF} has no package.json. Merge the site into that branch or set the SPRINGBOARD_REF repo variable."
+          if [ ! -f springspot/package.json ]; then
+            echo "::error::whv3rd/Springboard@${SPRINGSPOT_REF} has no package.json. Merge the site into that branch or set the SPRINGSPOT_REF repo variable."
             exit 1
           fi
 
@@ -59,10 +60,10 @@ jobs:
         with:
           node-version: 22
           cache: npm
-          cache-dependency-path: springboard/package-lock.json
+          cache-dependency-path: springspot/package-lock.json
 
-      - name: Build Springboard
-        working-directory: springboard
+      - name: Build Springspot
+        working-directory: springspot
         env:
           # Klaviyo account "Springspot AI": public site key and the Email List the forms
           # subscribe to. Both are browser-safe. Repo variables override them.
@@ -70,8 +71,8 @@ jobs:
           PUBLIC_KLAVIYO_LIST_ID: ${{ vars.PUBLIC_KLAVIYO_LIST_ID || 'Y3mKEK' }}
         run: |
           npm ci
-          npx astro build --site https://www.willvinton.com --base "$SPRINGBOARD_BASE"
-          node ../site/.github/scripts/prefix-base.mjs dist "$SPRINGBOARD_BASE"
+          npx astro build --site https://www.willvinton.com --base "$SPRINGSPOT_BASE"
+          node ../site/.github/scripts/prefix-base.mjs dist "$SPRINGSPOT_BASE"
           node ../site/.github/scripts/inject-gtm.mjs dist "$GTM_ID"
           # Internal design reference: keep it in `astro dev`, off the live site.
           rm -rf dist/styleguide
@@ -79,11 +80,13 @@ jobs:
       - name: Assemble site
         run: |
           mkdir -p _site
-          rsync -a --exclude '.git' --exclude '.github' --exclude 'README.md' site/ _site/
-          mkdir -p "_site${SPRINGBOARD_BASE}"
-          cp -R springboard/dist/. "_site${SPRINGBOARD_BASE}/"
+          # Repo docs, tooling and willvinton.html (a copy of index.html for previews) stay off the site.
+          rsync -a --exclude '.git' --exclude '.github' --exclude '/*.md' --exclude '/docs' \
+            --exclude '/gtm' --exclude '/scripts' --exclude '/willvinton.html' site/ _site/
+          mkdir -p "_site${SPRINGSPOT_BASE}"
+          cp -R springspot/dist/. "_site${SPRINGSPOT_BASE}/"
           # shellcheck disable=SC2086 # split the list of old bases into arguments
-          node site/.github/scripts/redirect-old-base.mjs _site "$SPRINGBOARD_BASE" https://www.willvinton.com $SPRINGBOARD_OLD_BASES
+          node site/.github/scripts/redirect-old-base.mjs _site "$SPRINGSPOT_BASE" https://www.willvinton.com $SPRINGSPOT_OLD_BASES
 
       - uses: actions/configure-pages@v5
 
