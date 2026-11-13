@@ -26,7 +26,7 @@ Run this after the code is deployed and the GTM import is in **Preview**, or aft
 | 4 | Click **Get in touch**, then **See the curve** in the hero | `cta_click` ×2, cta_location = hero |
 | 5 | Scroll slowly to the bottom of the page | `scroll_depth` at 25, 50, 75, 90 (content_type = page) |
 | 6 | In **What I do**, click the → then ← arrows | `carousel_nav`: ui_action = next / prev, ui_location = what_i_do |
-| 7 | Scroll **Now building** into view | `project_view` for Springspot AI, Brecks Brothers Digital Consulting, Commerce Builds engagements, Hobby collectibles store (current) and Pool care store (next) |
+| 7 | Scroll **Now building** into view | `project_view` for Springspot AI, Brecks Brothers Digital Consulting, Shopify Plus client work, Hobby collectibles store (current) and Pool care store (next) |
 | 8 | Scroll through **Work** | `project_view` for each job as it becomes active (status current or past) |
 | 9 | Click a job title in Work (or a year button on mobile) | `accordion_open`: ui_item = job, ui_location = work, ui_action = row / year_chip |
 | 10 | Click **Full history on LinkedIn** (cancel the new tab) | `click` (outbound = true, link_domain = linkedin.com) and `social_click` (network = linkedin) |
