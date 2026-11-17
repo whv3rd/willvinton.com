@@ -80,9 +80,11 @@ jobs:
       - name: Assemble site
         run: |
           mkdir -p _site
-          # Repo docs, tooling and willvinton.html (a copy of index.html for previews) stay off the site.
+          # Repo docs, tooling, willvinton.html (a copy of index.html for previews) and the Labs
+          # project template stay off the site.
           rsync -a --exclude '.git' --exclude '.github' --exclude '/*.md' --exclude '/docs' \
-            --exclude '/gtm' --exclude '/scripts' --exclude '/willvinton.html' site/ _site/
+            --exclude '/gtm' --exclude '/scripts' --exclude '/willvinton.html' \
+            --exclude '/labs/_template' --exclude '/labs/*.md' site/ _site/
           mkdir -p "_site${SPRINGSPOT_BASE}"
           cp -R springspot/dist/. "_site${SPRINGSPOT_BASE}/"
           # shellcheck disable=SC2086 # split the list of old bases into arguments

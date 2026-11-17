@@ -29,7 +29,8 @@
   var d = document;
   if (w.wvTrack) return;
 
-  var SECTION = /^\/springspot(\/|$)/.test(location.pathname) ? 'springspot' : 'personal';
+  var SECTION = /^\/springspot(\/|$)/.test(location.pathname) ? 'springspot'
+    : /^\/labs(\/|$)/.test(location.pathname) ? 'labs' : 'personal';
   var NAME = /^[a-z][a-z0-9_]{0,39}$/;
   var EMAIL = /[^\s@]+@[^\s@]+\.[^\s@]+/;
   var FILE = /\.(pdf|docx?|xlsx?|pptx?|csv|zip|txt|key|pages|numbers)$/i;

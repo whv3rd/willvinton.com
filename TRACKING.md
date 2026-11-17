@@ -1,6 +1,6 @@
 # Tracking
 
-GA4 event tracking for willvinton.com and Springspot (`/springspot/`).
+GA4 event tracking for willvinton.com, Springspot (`/springspot/`) and Springspot Labs (`/labs/`).
 
 - GA4 property: 563254766 (account 415433599)
 - Measurement ID: G-WPLXXKH0FY
@@ -20,6 +20,7 @@ The helper never breaks the page: every call is wrapped in `try`/`catch`. If GTM
 **Every event gets `site_section`:**
 - `personal` on willvinton.com
 - `springspot` under `/springspot/`
+- `labs` under `/labs/` (Springspot Labs, on willvinton.com)
 
 ## Tagging something new
 
