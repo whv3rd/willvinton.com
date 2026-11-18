@@ -87,6 +87,14 @@ jobs:
           cp -R springspot/dist/. "_site${SPRINGSPOT_BASE}/"
           # shellcheck disable=SC2086 # split the list of old bases into arguments
           node site/.github/scripts/redirect-old-base.mjs _site "$SPRINGSPOT_BASE" https://www.willvinton.com $SPRINGSPOT_OLD_BASES
+          # The homepage lists the newest posts, from Springspot's feed.
+          node site/.github/scripts/inject-latest-posts.mjs _site/index.html "_site${SPRINGSPOT_BASE}/rss.xml"
+          # /sitemap.xml: an index of the homepage's sitemap and Springspot's.
+          node site/.github/scripts/build-sitemap.mjs _site https://www.willvinton.com "${SPRINGSPOT_BASE#/}/sitemap.xml"
+
+      - name: Check search basics
+        # Titles, descriptions, canonicals, social tags, JSON-LD, broken links, sitemaps.
+        run: node site/scripts/check-seo.mjs _site https://www.willvinton.com
 
       - uses: actions/configure-pages@v5
 
