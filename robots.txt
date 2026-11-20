@@ -1,0 +1,8 @@
+# willvinton.com and Springspot AI (/springspot/). Everything public is open to crawlers.
+# The old Springspot addresses (/springboard/, /springsboard/) stay crawlable on purpose:
+# their pages forward to the new ones, and crawlers have to see that to move the old
+# URLs' standing over.
+User-agent: *
+Allow: /
+
+Sitemap: https://www.willvinton.com/sitemap.xml
