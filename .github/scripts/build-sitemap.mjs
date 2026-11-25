@@ -20,10 +20,18 @@ if (!siteDir || !rawOrigin) {
 const origin = rawOrigin.replace(/\/$/, '');
 const xml = (s) => s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 
-// Top-level pages only: subdirectories belong to the sections with their own sitemaps
-// (or are old-address forwarding pages).
+// willvinton.com's own pages: top-level pages plus each section's index page (e.g.
+// /labs/). Folders that publish their own sitemap (Springspot) are left to it, and
+// old-address forwarding pages are noindex, so they drop out below.
+const ownedBySub = new Set(subs.map((sub) => sub.split('/')[0]));
+const candidates = [];
+for (const entry of (await readdir(siteDir, { withFileTypes: true })).sort((a, b) => a.name.localeCompare(b.name))) {
+  if (entry.isFile() && entry.name.endsWith('.html')) candidates.push(entry.name);
+  else if (entry.isDirectory() && !ownedBySub.has(entry.name) && existsSync(join(siteDir, entry.name, 'index.html')))
+    candidates.push(`${entry.name}/index.html`);
+}
 const pages = [];
-for (const file of (await readdir(siteDir)).filter((f) => f.endsWith('.html')).sort()) {
+for (const file of candidates) {
   const html = await readFile(join(siteDir, file), 'utf8');
   const canonical = html.match(/<link rel="canonical" href="([^"]*)"/)?.[1];
   const robots = html.match(/<meta name="robots" content="([^"]*)"/)?.[1] ?? '';
@@ -52,4 +60,4 @@ ${sitemaps.map((s) => `  <sitemap><loc>${xml(`${origin}/${s}`)}</loc></sitemap>`
 </sitemapindex>
 `,
 );
-console.log(`Wrote sitemap.xml: ${sitemaps.join(', ')} (${pages.length} top-level page(s))`);
+console.log(`Wrote sitemap.xml: ${sitemaps.join(', ')} (${pages.length} page(s) of its own)`);
