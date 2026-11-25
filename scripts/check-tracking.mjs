@@ -115,13 +115,18 @@ await page.click('.hero a[href="#curve"]');
 await page.click('.pl-btn.next');
 await page.click('.pl-btn.prev');
 await page.click('a.site[href="/springspot/"]');
-await page.click('a.feature');
+await page.click('a.fam.ai');
 await page.click('.socials a[href*="linkedin"]');
 await page.click('.socials a[href*="github"]');
 await page.click('a[href^="mailto:"]');
 await page.click('#copyEmail');
 await page.waitForTimeout(200);
 await scrollThrough(page, null);
+// A fast scroll can pass a small card before it's half on screen; stop on one to be sure.
+await page.evaluate(() =>
+  document.querySelector('[data-track-project="Pool care store"]').scrollIntoView({ block: 'center', behavior: 'instant' }),
+);
+await page.waitForTimeout(300);
 await page.evaluate(() => document.getElementById('work').scrollIntoView());
 await page.waitForTimeout(300);
 await page.evaluate(() => {

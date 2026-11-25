@@ -43,7 +43,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Schibsted+Grotesk:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
 <style>
 /* Dark-first. Sections vary in rhythm on purpose: wide hero, a marquee strip, a drawn career curve,
-   a bento of results, a slim band, a feature card, a collapsible work list and a centered close. */
+   a bento of results, a slim band, the Springspot family, a collapsible work list and a centered close. */
 :root{
   --bg:#0B0D0C; --surface:#131715; --surface-2:#181D1B; --ink:#EEF1EE; --muted:#8E9893; --line:#242A27;
   --accent:#9AABFF; --accent-soft:#1A2147; --live:#5BD69A; --next:#F0B45A; --on-ink:#0B0D0C;
@@ -226,19 +226,31 @@ span.smark{display:inline-grid;place-items:center;border-radius:5px;background:v
 /* now building */
 .building{padding-block:clamp(80px,10vw,140px)}
 .building .h2{margin-bottom:48px}
-.build-grid{display:grid;grid-template-columns:1.55fr 1fr;gap:16px}
-.feature{position:relative;overflow:hidden;border-radius:24px;padding:clamp(28px,3.5vw,44px);border:1px solid color-mix(in srgb,var(--accent) 40%,transparent);
-  background:linear-gradient(135deg,var(--accent-soft),var(--surface) 75%);display:flex;flex-direction:column;gap:18px;min-width:0;text-decoration:none;color:inherit}
-.feature .arc{position:absolute;right:28px;bottom:28px;width:min(34%,210px);height:auto;pointer-events:none}
-.feature .kind{display:flex;align-items:center;gap:14px;font:500 .72rem/1.4 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--accent)}
-.feature .kind .ibox{background:color-mix(in srgb,var(--bg) 55%,transparent)}
-.feature h3{font:800 clamp(2.4rem,5vw,3.4rem)/1 var(--display);letter-spacing:-.035em;margin-top:6px}
-.feature p{color:var(--muted);max-width:30rem;position:relative}
-.feature .go{margin-top:auto;padding-top:12px;display:inline-flex;align-items:center;gap:8px;font-weight:600;color:var(--accent)}
-.feature:hover .go .icon{transform:translateX(3px)}
+/* the Springspot family: one card per site, each in its own colour (--c) */
+.family-head{display:flex;flex-wrap:wrap;align-items:end;justify-content:space-between;gap:12px 32px;margin-bottom:20px}
+.family-head h3{display:flex;align-items:center;gap:12px;font:800 clamp(1.6rem,3vw,2.1rem)/1.05 var(--display);letter-spacing:-.03em}
+.family-head h3 .smark{width:30px;height:30px;color:var(--ink)}
+.family-head p{color:var(--muted);max-width:34rem}
+.fam-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;list-style:none;margin:0;padding:0}
+.fam{--c:var(--accent);position:relative;display:flex;flex-direction:column;gap:14px;height:100%;padding:clamp(24px,2.6vw,32px);border-radius:24px;min-width:0;
+  border:1px solid color-mix(in srgb,var(--c) 38%,var(--line));background:linear-gradient(150deg,color-mix(in srgb,var(--c) 13%,var(--surface)),var(--surface) 68%);
+  color:inherit;text-decoration:none;transition:border-color .25s,transform .25s}
+.fam:hover{border-color:var(--c);transform:translateY(-3px)}
+.fam.ai{--c:var(--accent)} .fam.sec{--c:var(--live)} .fam.labs{--c:var(--next)}
+.fam .ibox{background:color-mix(in srgb,var(--c) 14%,var(--bg));border-color:color-mix(in srgb,var(--c) 40%,transparent);color:var(--c)}
+.fam .kind{font:500 .7rem/1.4 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--c)}
+.fam h4{font:800 clamp(1.7rem,2.6vw,2.15rem)/1.02 var(--display);letter-spacing:-.035em}
+.fam p{color:var(--muted);font-size:.97rem}
+.fam .tags{display:flex;flex-wrap:wrap;gap:6px}
+.fam .tags span{font:400 .7rem/1 var(--mono);padding:6px 8px;border-radius:6px;background:color-mix(in srgb,var(--bg) 55%,transparent);border:1px solid var(--line)}
+.fam .foot{margin-top:auto;padding-top:14px;border-top:1px solid color-mix(in srgb,var(--c) 22%,var(--line));display:flex;align-items:center;justify-content:space-between;gap:12px}
+.fam .path{font:500 .72rem/1.3 var(--mono);color:var(--muted);overflow-wrap:anywhere}
+.fam .go{display:inline-flex;align-items:center;gap:8px;font-weight:600;color:var(--c);white-space:nowrap}
+.fam:hover .go .icon{transform:translateX(3px)}
 .go .icon{width:16px;height:16px;transition:transform .2s}
-.feature .tags{display:flex;flex-wrap:wrap;gap:6px}
-.feature .tags span{font:400 .72rem/1 var(--mono);padding:6px 8px;border-radius:6px;background:color-mix(in srgb,var(--bg) 55%,transparent);border:1px solid var(--line)}
+.also{margin-top:48px}
+.also h3{font:700 1.4rem/1.1 var(--display);letter-spacing:-.02em;margin-bottom:16px}
+.also .side{grid-template-columns:repeat(2,minmax(0,1fr))}
 .side{display:grid;gap:12px;align-content:start}
 .mini{display:flex;align-items:center;gap:16px;padding:18px 18px 18px 16px;border-radius:16px;background:var(--surface);border:1px solid var(--line);min-width:0}
 .mini .ibox{width:42px;height:42px;border-radius:12px}
@@ -263,6 +275,7 @@ a.mini:hover{border-color:var(--accent)}
 .latest time{display:block;font:500 .68rem/1.4 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--accent)}
 .latest b{display:block;margin-top:8px;font-weight:600;line-height:1.3}
 @media (max-width:1000px){.latest ul{grid-template-columns:1fr}}
+@media (max-width:700px){.also .side{grid-template-columns:1fr}}
 
 /* work */
 .work{background:var(--surface);border-block:1px solid var(--line);padding-block:clamp(80px,10vw,130px)}
@@ -452,7 +465,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;
   .about-grid{grid-template-columns:1fr}
   .acard.de{grid-row:auto}
   .work-aside{position:static}
-  .build-grid{grid-template-columns:1fr}
+  .fam-grid{grid-template-columns:1fr}
 }
 @media (max-width:860px){
   .hero-grid{grid-template-columns:1fr;gap:64px}
@@ -481,7 +494,6 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;
   .pillars{grid-auto-columns:84%}
   .pillar{padding:22px}
   .tile.wide{flex-direction:column;align-items:stretch;gap:16px}
-  .feature .arc{opacity:.35}
   .badge{right:-6px}
   .badge strong{font-size:1.8rem}
 }
@@ -521,7 +533,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;
       <a href="#work">Work</a>
       <a href="#about">About</a>
       <a href="/fractional/">Fractional</a>
-      <a href="/labs/">Labs</a>
+      <a href="#springspot">Springspot</a>
       <a class="btn primary sm" href="#contact" data-track="cta_click" data-track-cta-location="header">Say hello <svg class="icon" aria-hidden="true"><use href="#i-arrow-ur"/></svg></a>
     </nav>
   </div>
@@ -701,25 +713,44 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;
     <div class="wrap">
       <p class="label">04 · Now building</p>
       <h2 class="h2" id="building-h">Things I'm making<br>right now.</h2>
-      <div class="build-grid">
-        <a class="feature" href="/springspot/" data-track-project="Springspot AI" data-track-project-status="current">
-          <svg class="arc" viewBox="0 0 300 240" aria-hidden="true">
-            <path d="M10 220 C 90 220, 120 40, 290 20" stroke="var(--accent)" stroke-width="2" stroke-dasharray="1 9" stroke-linecap="round" fill="none"/>
-            <path d="M10 220 H 120" stroke="var(--ink)" stroke-width="3" stroke-linecap="round"/>
-            <circle cx="290" cy="20" r="9" fill="var(--accent)"/><circle cx="290" cy="20" r="22" stroke="var(--accent)" stroke-opacity=".35" fill="none"/>
-            <circle cx="196" cy="70" r="4" fill="var(--accent)" fill-opacity=".6"/><circle cx="150" cy="128" r="3" fill="var(--accent)" fill-opacity=".4"/>
-          </svg>
-          <span class="kind"><span class="ibox"><svg class="icon" aria-hidden="true"><use href="#i-rocket"/></svg></span>Consulting framework · Blog</span>
-          <h3>Springspot AI</h3>
-          <p>A foundation that lets a small ecommerce team run like a big one: a Figma design system, Claude, and Shopify and Klaviyo connected through MCP, with business processes automated end to end. Includes a scoring system and an education hub.</p>
-          <span class="tags"><span>Figma</span><span>MCP</span><span>Klaviyo</span><span>AI ops</span></span>
-          <span class="go">Read the blog <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></span>
-        </a>
+      <div class="family" id="springspot">
+        <div class="family-head">
+          <h3><svg class="smark" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="7" fill="currentColor"/><path d="M8 22h16M11 22l5-12 5 12" stroke="var(--bg)" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>The Springspot family</h3>
+          <p>One idea, three ways: a small team with the right systems and AI can do what used to take a department. Each one is its own site.</p>
+        </div>
+        <ul class="fam-grid">
+          <li><a class="fam ai" href="/springspot/" data-track-project="Springspot AI" data-track-project-status="current">
+            <span class="ibox"><svg class="icon" aria-hidden="true"><use href="#i-rocket"/></svg></span>
+            <span class="kind">Education · Consulting framework</span>
+            <h4>Springspot AI</h4>
+            <p>How a small ecommerce team runs like a big one: a Figma design system, Claude, and Shopify and Klaviyo connected through MCP. A blog, a Score and a step-by-step Path.</p>
+            <span class="tags"><span>Figma</span><span>MCP</span><span>Klaviyo</span><span>AI ops</span></span>
+            <span class="foot"><span class="path">/springspot</span><span class="go">Visit <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></span></span>
+          </a></li>
+          <li><a class="fam sec" href="/springspot/security/" data-track-project="Springspot Security" data-track-project-status="current">
+            <span class="ibox"><svg class="icon" viewBox="0 0 32 32" aria-hidden="true" style="fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round"><ellipse cx="16" cy="26" rx="11" ry="4"/><ellipse cx="16" cy="26" rx="4.5" ry="1.6"/><path d="M16 25 10.5 22 21.5 18.5 10.5 15 21.5 11.5 10.5 8 21.5 4.5 16 3"/></svg></span>
+            <span class="kind">Security consulting</span>
+            <h4>Springspot Security</h4>
+            <p>Security reviews for businesses without a security team: who can get into what, which vendors are the weak link, and a plan for the day something goes wrong.</p>
+            <span class="tags"><span>Reviews</span><span>Access</span><span>Vendor risk</span><span>Incidents</span></span>
+            <span class="foot"><span class="path">/springspot/security</span><span class="go">Visit <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></span></span>
+          </a></li>
+          <li><a class="fam labs" href="/labs/" data-track-project="Springspot Labs" data-track-project-status="current">
+            <span class="ibox"><svg class="icon" aria-hidden="true"><use href="#i-spark"/></svg></span>
+            <span class="kind">Family studio</span>
+            <h4>Springspot Labs</h4>
+            <p>Games, worlds, stories and characters I build with my kids, using the same lean, AI-assisted tools as everything else here.</p>
+            <span class="tags"><span>Games</span><span>Worlds</span><span>Stories</span></span>
+            <span class="foot"><span class="path">/labs</span><span class="go">Visit <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></span></span>
+          </a></li>
+        </ul>
+      </div>
+      <div class="also">
+        <h3>Also on the go</h3>
         <div class="side">
           <article class="mini" data-track-project="Brecks Brothers Digital Consulting" data-track-project-status="current"><span class="ibox"><svg class="icon" aria-hidden="true"><use href="#i-compass"/></svg></span><div><b>Brecks Brothers Digital Consulting</b><p>Ecommerce strategy, from a product or idea to a full Shopify Plus site.</p></div><span class="chip now">Now</span></article>
           <article class="mini" data-track-project="Shopify Plus client work" data-track-project-status="current"><span class="ibox"><svg class="icon" aria-hidden="true"><use href="#i-users"/></svg></span><div><b>Shopify Plus client work</b><p>A footwear replatform going live November 2026, plus growth and catalog work.</p></div><span class="chip now">Now</span></article>
           <article class="mini" data-track-project="Hobby collectibles store" data-track-project-status="current"><span class="ibox"><svg class="icon" aria-hidden="true"><use href="#i-bag"/></svg></span><div><b>Hobby collectibles store</b><p>Shopify dropship, from sports cards to Pokémon and coins.</p></div><span class="chip now">Now</span></article>
-          <a class="mini" href="/labs/" data-track-project="Springspot Labs" data-track-project-status="current"><span class="ibox"><svg class="icon" aria-hidden="true"><use href="#i-spark"/></svg></span><div><b>Springspot Labs</b><p>Games, worlds and stories I build with my kids.</p></div><span class="chip now">Now</span></a>
           <article class="mini" data-track-project="Pool care store" data-track-project-status="next"><span class="ibox"><svg class="icon" aria-hidden="true"><use href="#i-drop"/></svg></span><div><b>Pool care store</b><p>Focused dropship for pool skimming gear.</p></div><span class="chip next">Next</span></article>
         </div>
       </div>

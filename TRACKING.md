@@ -66,7 +66,7 @@ Most things need one attribute or none.
 | `resume_download` | file_name, file_extension, link_url | A resume file link is clicked | Ready; no resume on the site yet |
 | `file_download` | file_name, file_extension, link_url | Any other file link is clicked | Ready; no files yet |
 | `project_view` | project_name, project_status | A project card is half on screen, or a work-history job is shown or opened (once each) | Now building, Work |
-| `project_click` | project_name, project_status, link_url | A link inside a project is clicked | Springspot AI card |
+| `project_click` | project_name, project_status, link_url | A link inside a project is clicked | Springspot family cards (AI, Security, Labs) |
 | `scroll_depth` | percent_scrolled (25/50/75/90), content_type, post_title, post_slug | The reader passes each mark. On posts it's measured against the post body, elsewhere against the page | Every page |
 | `read_complete` | content_type, post_title, post_slug | The end of the post body is on screen | Blog posts, free Path guides |
 | `score_start` | – | The first answer in the Score | /springspot/score/ |
