@@ -18,7 +18,7 @@ labs/
 
 1. Copy `labs/_template/` to `labs/<project-slug>/` (lowercase, hyphens).
 2. Replace every CAPITALISED placeholder. Use a `.track` class that matches: `worlds`, `games`, `stories`, `chars`, `apps`.
-3. Remove `<meta name="robots" content="noindex">` once it's ready to share.
+3. Once it's ready to share, change `<meta name="robots" content="noindex">` to `content="index, follow, max-image-preview:large"`. The deploy then adds it to the sitemap. Fill in the placeholders in the share tags and the JSON-LD too; the share image is `labs/og-card.jpg` unless the project has its own (1200×630).
 4. On `labs/index.html`, turn the matching placeholder card in **Projects** into a link to the new page (keep `data-track-project` on it so views and clicks are tracked).
 5. Flip that track's "Coming soon" label once it has something live.
 

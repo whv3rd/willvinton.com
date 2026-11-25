@@ -226,6 +226,26 @@ await page.goto(`${BASE}/springspot/about/`);
 ev = await events(page);
 expectEvent(ev, 'form_abandon', { form_id: 'score', field_name: (ev.find((e) => e.event === 'form_abandon') || {}).field_name });
 
+console.log('\n/fractional/ (enquiry form)');
+await page.goto(`${BASE}/fractional/`);
+await reset(page);
+await page.click('#enquiry button[type="submit"]');
+ev = await events(page);
+for (const field of ['name', 'company', 'message'])
+  expectEvent(ev, 'form_error', { form_id: 'fractional_enquiry', field_name: field, error_type: 'required' });
+await reset(page);
+// Typed values are distinctive so the privacy sweep below would catch them leaking.
+await page.fill('#f-name', 'Quokka Tester');
+await page.fill('#f-company', 'Zebracorp');
+await page.fill('#f-message', 'Wombat plans');
+await page.click('#enquiry button[type="submit"]');
+await page.waitForTimeout(200);
+ev = await events(page);
+expectEvent(ev, 'form_start', { form_id: 'fractional_enquiry' });
+expectEvent(ev, 'form_submit', { form_id: 'fractional_enquiry' });
+expectEvent(ev, 'generate_lead', { lead_source: 'fractional_enquiry', form_id: 'fractional_enquiry' });
+check(!JSON.stringify(ALL).match(/Quokka|Zebracorp|Wombat/), 'nothing typed into the enquiry form is sent');
+
 console.log('\nblog post');
 const post = 'what-springspot-is';
 await page.goto(`${BASE}/springspot/blog/${post}/`);
