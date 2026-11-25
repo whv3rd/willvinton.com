@@ -1,6 +1,6 @@
 // Writes the site's sitemap index at <site-dir>/sitemap.xml (the address robots.txt and
 // Search Console use). It lists:
-//   /sitemap-pages.xml       willvinton.com's own pages, written here
+//   /sitemap-pages.xml       willvinton.com's own pages (the homepage, /labs/...), written here
 //   /springspot/sitemap.xml  Springspot's pages, written by its build (when it has one)
 // A page is listed only if it has a canonical URL on this site and isn't noindex, so the
 // moved-page and 404 pages stay out. No lastmod for these hand-edited pages: a build date
@@ -20,18 +20,16 @@ if (!siteDir || !rawOrigin) {
 const origin = rawOrigin.replace(/\/$/, '');
 const xml = (s) => s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 
-// willvinton.com's own pages: top-level pages plus each section's index page (e.g.
-// /labs/). Folders that publish their own sitemap (Springspot) are left to it, and
-// old-address forwarding pages are noindex, so they drop out below.
-const ownedBySub = new Set(subs.map((sub) => sub.split('/')[0]));
-const candidates = [];
-for (const entry of (await readdir(siteDir, { withFileTypes: true })).sort((a, b) => a.name.localeCompare(b.name))) {
-  if (entry.isFile() && entry.name.endsWith('.html')) candidates.push(entry.name);
-  else if (entry.isDirectory() && !ownedBySub.has(entry.name) && existsSync(join(siteDir, entry.name, 'index.html')))
-    candidates.push(`${entry.name}/index.html`);
-}
+// Every page on the site except those under a section with its own sitemap (Springspot),
+// which that sitemap lists. Old-address forwarding pages and the 404 are noindex, so the
+// check below leaves them out.
+const ownSitemap = subs.map((sub) => sub.replace(/[^/]*$/, ''));
 const pages = [];
-for (const file of candidates) {
+const files = (await readdir(siteDir, { recursive: true }))
+  .map((f) => f.split('\\').join('/'))
+  .filter((f) => f.endsWith('.html') && !ownSitemap.some((dir) => f.startsWith(dir)))
+  .sort();
+for (const file of files) {
   const html = await readFile(join(siteDir, file), 'utf8');
   const canonical = html.match(/<link rel="canonical" href="([^"]*)"/)?.[1];
   const robots = html.match(/<meta name="robots" content="([^"]*)"/)?.[1] ?? '';
@@ -60,4 +58,4 @@ ${sitemaps.map((s) => `  <sitemap><loc>${xml(`${origin}/${s}`)}</loc></sitemap>`
 </sitemapindex>
 `,
 );
-console.log(`Wrote sitemap.xml: ${sitemaps.join(', ')} (${pages.length} page(s) of its own)`);
+console.log(`Wrote sitemap.xml: ${sitemaps.join(', ')} (${pages.length} page(s) in sitemap-pages.xml)`);

@@ -10,13 +10,19 @@ Both sites deploy as one GitHub Pages site from this repo (`.github/workflows/de
 |---|---|---|
 | `/robots.txt` | Allows everything; points at the sitemap | `robots.txt` here |
 | `/sitemap.xml` | Sitemap index: the two below | `.github/scripts/build-sitemap.mjs`, at deploy |
-| `/sitemap-pages.xml` | The homepage | same |
+| `/sitemap-pages.xml` | willvinton.com's own pages: the homepage, `/labs/` and any indexable Labs project | same |
 | `/springspot/sitemap.xml` | Every indexable Springspot page, with `lastmod` on posts | Springspot's build (`integrations/seo-output.mjs`) |
 | `/springspot/rss.xml` | The blog's RSS feed | Springspot (`src/pages/rss.xml.ts`) |
 | `/404.html` | Served for any missing address on the site (noindex) | `404.html` here |
 | `/og-card.jpg` | The homepage's share image | `scripts/social-card.mjs` |
+| `/fractional/og-card.jpg` | The fractional leadership page's share image | `scripts/social-card.mjs` |
+| `/labs/og-card.jpg` | The Labs share image, also the default for Labs projects | `scripts/social-card.mjs` |
 
 **Homepage (`index.html`):** title, description, canonical, robots, Open Graph and Twitter card tags with `og-card.jpg`, `rel="me"` links, the blog's feed, and a JSON-LD graph of `WebSite`, `ProfilePage` and `Person` (`@id` `https://www.willvinton.com/#person`, with `sameAs` to LinkedIn, GitHub and the Springspot author page). Keep `willvinton.html` in step: it's the same page without the document wrapper, the canonical or the GTM noscript.
+
+**Fractional leadership (`/fractional/`):** the service page for fractional CDO / VP / Director of Ecommerce work. Its JSON-LD is `WebPage`, `BreadcrumbList`, `Person`, `ProfessionalService` (with the four engagement models as an `OfferCatalog`) and `FAQPage`, built from the visible FAQ, so edit both together. The homepage links to it from the nav and the contact section, and its `Person` node points at the service with `makesOffer`. The enquiry form writes an email in the visitor's mail app (there's no server); see `TRACKING.md` for its events.
+
+**Springspot Labs (`/labs/`):** the same share tags and a JSON-LD `CollectionPage` + `BreadcrumbList`, attributed to the homepage's Person. The project template (`labs/_template/`) carries them too, with placeholders, and stays `noindex` until a project is ready (see `labs/README.md`). Any new page on this repo needs these tags, or the deploy check fails.
 
 **Latest posts on the homepage:** the deploy rewrites the list between `<!-- latest-posts -->` and `<!-- /latest-posts -->` with the three newest posts from the feed (`.github/scripts/inject-latest-posts.mjs`), so the site's strongest page always links to new writing. The list in the repo is only the fallback.
 

@@ -58,11 +58,11 @@ Most things need one attribute or none.
 | `social_click` | network (`linkedin`, `github`, …), link_url, cta_location | A social profile link is clicked; also sends `click` | Contact, work section |
 | `contact_click` | contact_method (`email`, `phone`), cta_location | A `mailto:`/`tel:` link is clicked. The address is never sent | Contact |
 | `copy_to_clipboard` | content_type (`email`), ui_action (`copied`/`selected`), ui_location | The Copy button worked, or fell back to selecting the text | Contact |
-| `form_start` | form_id, form_name | First answer or keystroke in a form | Score, Stack gate |
-| `form_submit` | form_id, form_name | The submit succeeded | Score, Stack gate |
-| `form_error` | form_id, form_name, field_name, error_type (`required`, `invalid_format`, `submit_failed`), step_number | Validation failed or the send failed. The field name is sent, never the value | Score, Stack gate |
-| `form_abandon` | form_id, form_name, field_name (last field touched) | The page is left after `form_start` without a `form_submit` | Score, Stack gate |
-| `generate_lead` | lead_source (`springspot_score`, `stack_breakdown`), form_id | Klaviyo accepted the email | Score, Stack gate |
+| `form_start` | form_id, form_name | First answer or keystroke in a form | Score, Stack gate, fractional enquiry |
+| `form_submit` | form_id, form_name | The submit succeeded (for the fractional enquiry: the email was written and handed to the mail app) | Score, Stack gate, fractional enquiry |
+| `form_error` | form_id, form_name, field_name, error_type (`required`, `invalid_format`, `submit_failed`), step_number | Validation failed or the send failed. The field name is sent, never the value | Score, Stack gate, fractional enquiry |
+| `form_abandon` | form_id, form_name, field_name (last field touched) | The page is left after `form_start` without a `form_submit` | Score, Stack gate, fractional enquiry |
+| `generate_lead` | lead_source (`springspot_score`, `stack_breakdown`, `fractional_enquiry`), form_id | Klaviyo accepted the email; for `fractional_enquiry`, the enquiry email was written (the site can't see whether it was sent) | Score, Stack gate, fractional enquiry |
 | `resume_download` | file_name, file_extension, link_url | A resume file link is clicked | Ready; no resume on the site yet |
 | `file_download` | file_name, file_extension, link_url | Any other file link is clicked | Ready; no files yet |
 | `project_view` | project_name, project_status | A project card is half on screen, or a work-history job is shown or opened (once each) | Now building, Work |
